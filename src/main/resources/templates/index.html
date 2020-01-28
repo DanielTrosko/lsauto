@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>LS Auto - Bavaria Car Service</title>
+</head>
+<body>
+<div class="container">
+    <header th:insert="header.html"></header>
+
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12">
+            <table class="table">
+                <thead>
+                <tr>Lista Pojazdów</tr>
+                <tr>
+                    <th style="font-weight: bold">ID</th>
+                    <th style="font-weight: bold">Marka</th>
+                    <th style="font-weight: bold">Model</th>
+                    <th style="font-weight: bold">Rok</th>
+                    <th style="font-weight: bold">Nr. rejestracyjny</th>
+                    <th style="font-weight: bold">VIN</th>
+                    <th style="font-weight: bold">Przebieg</th>
+                    <th style="font-weight: bold">Właściciel</th>
+                    <th style="font-weight: bold">Dodaj naprawe</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="car:${carlist}">
+                    <tr>
+                    <td th:text="${car.getId()}"></td>
+                    <td th:text="${car.mark.toUpperCase()}"></td>
+                    <td th:text="${car.model.toUpperCase()}"></td>
+                    <td th:text="${car.year}"></td>
+                    <td th:text="${car.plateNumber.toUpperCase()}"></td>
+                    <td th:text="${car.chassisNumber.toUpperCase()}"></td>
+                    <td th:text="${car.meterReading}"></td>
+                    <td th:text="${car.getOwner().getFirstName()}"></td>
+                    <td>
+                        <a th:href="@{/repair/addrepair(id=${car.getId()})}" style="color:black" >Dodaj</a>
+                    </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer th:insert="footer.html" class="mt-5"></footer>
+</body>
+</html>

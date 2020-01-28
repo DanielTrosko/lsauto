@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>LS Auto - Bavaria Car Service</title>
+</head>
+<body>
+<div class="container">
+<header th:insert="header.html"></header>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12">
+            <table class="table">
+                <thead>
+                <tr>Lista aktualnych napraw</tr>
+                <tr>
+                    <th style="font-weight: bold">Numer naprawy</th>
+                    <th style="font-weight: bold">Data przyjęcia</th>
+                    <th style="font-weight: bold">Zakres napraw</th>
+                    <th style="font-weight: bold">Model</th>
+                    <th style="font-weight: bold">Nr. Rejestracyjny</th>
+                    <th style="font-weight: bold">Mechanik</th>
+                    <th style="font-weight: bold">Status naprawy</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="car:${currentrepair}">
+                    <tr>
+                    <td th:text="${car.repairNumber}"></td>
+                    <td th:text="${car.dateOfAdmission}"></td>
+                    <td th:text="${car.scopeOfWork}"></td>
+                    <td th:text="${car.car.getModel()}"></td>
+                        <td th:text="${car.car.getChassisNumber()}"></td>
+                    <td aria-atomic="true">Robert</td>
+                    <td th:text="${car.status}"></td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer th:insert="footer.html" class="mt-5"></footer>
+</body>
+</html>

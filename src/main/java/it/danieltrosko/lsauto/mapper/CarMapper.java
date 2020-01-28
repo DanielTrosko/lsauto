@@ -9,8 +9,6 @@ public class CarMapper {
     public static CarDTO toDTO(Car car){
         CarDTO carDTO = new CarDTO();
         carDTO.setId(car.getId());
-        carDTO.setCreatedOn(car.getCreatedOn());
-        carDTO.setUpdateOn(car.getUpdateOn());
         carDTO.setMark(car.getMark());
         carDTO.setModel(car.getModel());
         carDTO.setYear(car.getYear());
@@ -24,8 +22,6 @@ public class CarMapper {
     public static Car toEntity(CarDTO carDTO){
         Car car = new Car();
         car.setId(carDTO.getId());
-        car.setCreatedOn(carDTO.getCreatedOn());
-        car.setUpdateOn(carDTO.getUpdateOn());
         car.setMark(carDTO.getMark());
         car.setMark(carDTO.getMark());
         car.setModel(carDTO.getModel());

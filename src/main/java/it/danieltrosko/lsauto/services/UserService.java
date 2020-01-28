@@ -8,6 +8,8 @@ import it.danieltrosko.lsauto.model.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -36,5 +38,8 @@ public class UserService {
         User user = UserMapper.userToEntity(userDTO);
         addressRepository.save(user.getAddress());
         userRepository.save(user);
+    }
+    public List<UserDTO> getAllUser(){
+        return userRepository.findAll().stream().map(UserMapper::toDTO).collect(Collectors.toList());
     }
 }

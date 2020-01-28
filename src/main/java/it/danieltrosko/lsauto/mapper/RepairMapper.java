@@ -12,12 +12,11 @@ public class RepairMapper {
     public static RepairDTO toDTO(Repair repair) {
         RepairDTO repairDTO = new RepairDTO();
         repairDTO.setId(repair.getId());
-        repairDTO.setCreatedOn(repair.getCreatedOn());
-        repairDTO.setUpdateOn(repair.getUpdateOn());
         repairDTO.setRepairNumber(repair.getRepairNumber());
         repairDTO.setDateOfAdmission(repair.getDateOfAdmission());
         repairDTO.setDataOfPickup(repair.getDataOfPickup());
         repairDTO.setScopeOfWork(repair.getScopeOfWork());
+        repairDTO.setStatus(repair.getStatus());
         repairDTO.setCar(repair.getCar());
         return repairDTO;
     }
@@ -25,13 +24,12 @@ public class RepairMapper {
     public static Repair toEntity(RepairDTO repairDTO) {
         Repair repair = new Repair();
         repair.setId(repairDTO.getId());
-        repair.setCreatedOn(repairDTO.getCreatedOn());
-        repair.setUpdateOn(repairDTO.getUpdateOn());
         repair.setRepairNumber(repairDTO.getRepairNumber());
         repair.setDateOfAdmission(repairDTO.getDateOfAdmission());
         repair.setDataOfPickup(repairDTO.getDataOfPickup());
         repair.setScopeOfWork(repairDTO.getScopeOfWork());
         repair.setCar(repairDTO.getCar());
+        repair.setStatus(repairDTO.getStatus());
         return repair;
     }
 }

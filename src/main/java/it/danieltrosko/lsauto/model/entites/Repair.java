@@ -3,12 +3,10 @@ package it.danieltrosko.lsauto.model.entites;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,12 +15,13 @@ import java.time.LocalDateTime;
 public class Repair extends BaseEntity {
     @NotEmpty
     private String repairNumber;
-    @NotNull
-    private LocalDateTime dateOfAdmission;
-    private LocalDateTime dataOfPickup;
+
+    private LocalDate dateOfAdmission;
+    private LocalDate dataOfPickup;
     @NotEmpty
     private String scopeOfWork;
-    @NotNull
+    @Enumerated(EnumType.STRING)
+    private RepairStatus status;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "car_id")
     private Car car;

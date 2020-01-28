@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 public class Car extends BaseEntity {
     private String mark;
     private String model;
-    private Integer year;
+    private String year;
     private String plateNumber;
     private String chassisNumber;
     private String meterReading;
