@@ -12,19 +12,17 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 public class User extends BaseEntity {
+
     @Email
-    @Column(unique = true)
+    @Column(nullable = false)
     private String email;
-    @NotBlank
-    @Column(unique = true)
     private String username;
-    @NotBlank
     private String password;
-    @NotBlank
+    @Column(nullable = false)
     private String firstName;
-    @NotBlank
-    private String surname;
-    @Column(name = "phone_number", nullable = false)
+    @Column(nullable = false)
+    private String surame;
+    @Column(name = "phone_number")
     private String phoneNumber;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_address_id", nullable = false)

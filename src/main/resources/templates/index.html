@@ -14,48 +14,46 @@
     <header th:insert="header.html"></header>
 
 
-
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-12">
-            <table class="table">
-                <thead>
-                <tr>Lista Pojazdów</tr>
-                <tr>
-                    <th style="font-weight: bold">ID</th>
-                    <th style="font-weight: bold">Marka</th>
-                    <th style="font-weight: bold">Model</th>
-                    <th style="font-weight: bold">Rok</th>
-                    <th style="font-weight: bold">Nr. rejestracyjny</th>
-                    <th style="font-weight: bold">VIN</th>
-                    <th style="font-weight: bold">Przebieg</th>
-                    <th style="font-weight: bold">Właściciel</th>
-                    <th style="font-weight: bold">Dodaj naprawe</th>
-                </tr>
-                </thead>
-                <tbody>
-                <th:block th:each="car:${carlist}">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-sm-12">
+                <table class="table">
+                    <thead>
+                    <tr>Lista Pojazdów</tr>
                     <tr>
-                    <td th:text="${car.getId()}"></td>
-                    <td th:text="${car.mark.toUpperCase()}"></td>
-                    <td th:text="${car.model.toUpperCase()}"></td>
-                    <td th:text="${car.year}"></td>
-                    <td th:text="${car.plateNumber.toUpperCase()}"></td>
-                    <td th:text="${car.chassisNumber.toUpperCase()}"></td>
-                    <td th:text="${car.meterReading}"></td>
-                    <td th:text="${car.getOwner().getFirstName()}"></td>
-                    <td>
-                        <a th:href="@{/repair/addrepair(id=${car.getId()})}" style="color:black" >Dodaj</a>
-                    </td>
+                        <th style="font-weight: bold">ID</th>
+                        <th style="font-weight: bold">Marka</th>
+                        <th style="font-weight: bold">Model</th>
+                        <th style="font-weight: bold">Rok</th>
+                        <th style="font-weight: bold">Nr. rejestracyjny</th>
+                        <th style="font-weight: bold">VIN</th>
+                        <th style="font-weight: bold">Przebieg</th>
+                        <th style="font-weight: bold">Właściciel</th>
+                        <th style="font-weight: bold">Dodaj naprawe</th>
                     </tr>
-                </th:block>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="car:${carlist}">
+                        <tr>
+                            <td th:text="${car.getId()}"></td>
+                            <td th:text="${car.mark}"></td>
+                            <td th:text="${car.model}"></td>
+                            <td th:text="${car.year}"></td>
+                            <td th:text="${car.plateNumber}"></td>
+                            <td th:text="${car.chassisNumber}"></td>
+                            <td th:text="${car.meterReading}"></td>
+                            <td th:text="${car.firstName}"></td>
+                            <td>
+                                <a th:href="@{/repair/addrepair(id=${car.getId()})}" style="color:black">Dodaj</a>
+                            </td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-<footer th:insert="footer.html" class="mt-5"></footer>
+    <footer th:insert="footer.html" class="mt-5"></footer>
 </body>
 </html>

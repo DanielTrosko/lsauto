@@ -42,4 +42,5 @@ public class UserService {
     public List<UserDTO> getAllUser(){
         return userRepository.findAll().stream().map(UserMapper::toDTO).collect(Collectors.toList());
     }
+
 }

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>LS Auto - Bavaria Car Service - Edycja naprawy</title>
+</head>
+<body>
+<div class="container">
+    <header th:insert="header.html"></header>
+
+    <div class="row justify-content-center">
+        <div class="col-md-3 col-sm-12">
+            <div>
+                <h2>Formularz edycji naprawy</h2>
+                <form th:object="${repair}" method="post" th:action="@{/repair/addnewrepair}">
+                    <input th:field="*{id}" hidden="true"/>
+                    <input th:field="*{car.id}" hidden="true"/>
+                    <input th:field="*{car.owner.id}" hidden="true"/>
+                    <input th:field="*{car.owner.address.id}" hidden="true"/>
+
+                    <div class="md-form">
+                        <label for="repairNumber">Numer naprawy</label>
+                        <input id="repairNumber" type="text" class="form-control" th:field="*{repairNumber}">
+                        <p th:if="${#fields.hasErrors('repairNumber')}" th:errors="*{repairNumber}"></p><br>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="dateOfAdmission">Data przyjęcia</label>
+                        <input id="dateOfAdmission" type="date" class="form-control" th:field="*{dateOfAdmission}">
+                        <p th:if="${#fields.hasErrors('dateOfAdmission')}" th:errors="*{dateOfAdmission}"></p><br>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="dataOfPickup">Planowana data wydania</label>
+                        <input id="dataOfPickup" type="date" class="form-control" th:field="*{dataOfPickup}">
+                        <p th:if="${#fields.hasErrors('dataOfPickup')}" th:errors="*{dataOfPickup}"></p><br>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="scopeOfWork">Zakres prac</label>
+                        <input id="scopeOfWork" type="text" class="form-control" th:field="*{scopeOfWork}">
+                        <p th:if="${#fields.hasErrors('scopeOfWork')}" th:errors="*{scopeOfWork}"></p><br>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="plateNumber">Nr. rejestracyjny</label>
+                        <input id="plateNumber" type="text" class="form-control" th:field="*{car.plateNumber}">
+                    </div>
+
+                    <div class="md-form">
+                        <br>
+                        <label for="status">Status</label>
+                        <select id="status" name="status" class="browser-default custom-select">
+                            <option th:each="status : ${T(it.danieltrosko.lsauto.model.entites.RepairStatus).values()}"
+                                    th:value="${status}" th:text="${status}"></option>
+                        </select>
+                    </div>
+                    <br>
+
+                    <button value="submit" type="submit" class="btn btn-primary">Zapisz</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div/>
+    <footer th:insert="footer.html" class="mt-5"></footer>
+</body>
+</html>

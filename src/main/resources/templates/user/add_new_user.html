@@ -28,16 +28,16 @@
                     </div>
 
                     <div class="md-form">
-                    <label for="username">Nazwa użytkownika</label>
-                    <input id="username" type="text" class="form-control" th:field="*{username}">
-                    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p><br>
-                </div>
+                        <label for="username">Nazwa użytkownika</label>
+                        <input id="username" type="text" class="form-control" th:field="*{username}">
+                        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p><br>
+                    </div>
 
                     <div class="md-form">
-                    <label for="password">Hasło</label>
-                    <input id="password" type="password" class="form-control" th:field="*{password}">
-                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p><br>
-                </div>
+                        <label for="password">Hasło</label>
+                        <input id="password" type="password" class="form-control" th:field="*{password}">
+                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p><br>
+                    </div>
 
                     <div class="md-form">
                         <label for="firstName">Imie</label>
@@ -58,10 +58,10 @@
                     </div>
 
                     <div class="md-form">
-                    <label for="street">Ulica</label>
-                    <input id="street" type="text" class="form-control" th:field="*{street}">
-                    <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p><br>
-                </div>
+                        <label for="street">Ulica</label>
+                        <input id="street" type="text" class="form-control" th:field="*{street}">
+                        <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p><br>
+                    </div>
 
                     <div class="md-form">
                         <label for="houseNumber">Numer domu</label>
@@ -88,12 +88,6 @@
                     </div>
 
 
-
-
-
-
-
-
                     <button value="submit" type="submit" class="btn btn-primary">Zapisz</button>
                 </form>
             </div>
@@ -101,26 +95,7 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div/>
+    <div/>
     <footer th:insert="footer.html" class="mt-5"></footer>
 </body>
 </html>

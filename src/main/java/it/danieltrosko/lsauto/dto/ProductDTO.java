@@ -3,6 +3,7 @@ package it.danieltrosko.lsauto.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Getter
@@ -14,7 +15,8 @@ public class ProductDTO {
     @NotEmpty
     private String partNumber;
     private Integer amount;
+    @NotBlank
     private String location;
-    @NotEmpty
+    @NotBlank
     private String brand;
 }

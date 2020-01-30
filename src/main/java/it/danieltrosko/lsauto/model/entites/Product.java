@@ -3,6 +3,7 @@ package it.danieltrosko.lsauto.model.entites;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
@@ -10,13 +11,14 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 public class Product extends BaseEntity{
-    @NotEmpty
+    @Column(nullable = false)
     private String name;
-    @NotEmpty
+    @Column(nullable = false)
     private String partNumber;
     private Integer amount;
+    @Column(nullable = false)
     private String location;
-    @NotEmpty
+    @Column(nullable = false)
     private String brand;
 
 }

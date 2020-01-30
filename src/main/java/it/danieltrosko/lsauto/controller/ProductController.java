@@ -1,5 +1,6 @@
 package it.danieltrosko.lsauto.controller;
 
+import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
 import it.danieltrosko.lsauto.model.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +17,10 @@ public class ProductController {
         this.productRepository = productRepository;
     }
 
-    @GetMapping(value = "/getproduc")
+    @GetMapping(value = "/getproduct")
     public String getProductById(Long id, Model model) {
-        model.addAttribute("product", productRepository.getOne(id));
+//        model.addAttribute("product", productRepository.getOne(id));
+        model.addAttribute("repair", new CarAcceptanceDTO());
         return "/showproduct";
     }
 }
