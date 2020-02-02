@@ -49,4 +49,9 @@ public class RepairService {
         return CarAcceptanceMapper.toDTO(carRepository.getOne(id));
     }
 
+    public CarAcceptanceDTO getAcceptanceCarWithExistCar(Long carId) {
+        CarAcceptanceDTO carAcceptanceDTO = CarAcceptanceMapper.toDTO(carRepository.findById(carId).orElse(new Car()));
+        return carAcceptanceDTO;
+    }
+
 }

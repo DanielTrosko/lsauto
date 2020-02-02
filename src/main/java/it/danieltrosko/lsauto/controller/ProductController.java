@@ -2,6 +2,7 @@ package it.danieltrosko.lsauto.controller;
 
 import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
 import it.danieltrosko.lsauto.model.repositories.ProductRepository;
+import it.danieltrosko.lsauto.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductController {
 
     private ProductRepository productRepository;
+    private ProductService productService;
 
-    public ProductController(ProductRepository productRepository) {
+    public ProductController(ProductRepository productRepository, ProductService productService) {
         this.productRepository = productRepository;
+        this.productService = productService;
     }
 
     @GetMapping(value = "/getproduct")
-    public String getProductById(Long id, Model model) {
-//        model.addAttribute("product", productRepository.getOne(id));
-        model.addAttribute("repair", new CarAcceptanceDTO());
-        return "/showproduct";
+    public String getAllProduct(Model model) {
+        model.addAttribute("productList", productService.getAllProductList());
+        return "/product/show_all_product";
     }
 }

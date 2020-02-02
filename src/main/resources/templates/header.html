@@ -17,11 +17,54 @@
 
 <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-        <a class="p-2 text-muted" href="/">Lista Pojazdów</a>
-        <a class="p-2 text-muted" href="/repair/currentrepairs">Aktualne Naprawy</a>
-        <a class="p-2 text-muted" href="/user/addnewuser">Dodaj uzytkownika</a>
-        <a class="p-2 text-muted" href="/car/addnewcar">Dodaj samochód</a>
-        <a class="p-2 text-muted" href="/repair/addrepair">Dodaj nowa naprawe</a>
+
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonCar"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Samochód
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/">Lista Pojazdów</a>
+                <a class="dropdown-item" href="/car/addnewcar">Dodaj samochód</a>
+            </div>
+        </div>
+
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonRepair"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Naprawy
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/repair/currentrepairs">Aktualne Naprawy</a>
+                <a class="dropdown-item" href="/repair/addrepair">Dodaj nową naprawe</a>
+            </div>
+        </div>
+
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonCustomer"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Klieci
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/user/addnewuser">Dodaj uzytkownika</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonProduct"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Części
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/product/getproduct">Wszystkie części</a>
+                <a class="dropdown-item" href="/product/getproduct">Dodaj część</a>
+            </div>
+        </div>
+
+
     </nav>
 </div>
 </div>

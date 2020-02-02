@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="731d2540-df8b-41ff-9893-b4e3e75cde46">
+    <parameter name="mark" class="java.lang.String"/>
+    <parameter name="model" class="java.lang.String"/>
+    <parameter name="year" class="java.lang.String"/>
+    <parameter name="chassis" class="java.lang.String"/>
+    <parameter name="meter" class="java.lang.String"/>
+    <parameter name="plateNumber" class="java.lang.String"/>
+    <parameter name="name" class="java.lang.String"/>
+    <parameter name="surname" class="java.lang.String"/>
+    <parameter name="email" class="java.lang.String"/>
+    <parameter name="phoneNumber" class="java.lang.String"/>
+    <parameter name="scopeOfWork" class="java.lang.String"/>
+    <parameter name="street" class="java.lang.String"/>
+    <parameter name="houseNumber" class="java.lang.String"/>
+    <parameter name="apartmentNumber" class="java.lang.String"/>
+    <parameter name="postCode" class="java.lang.String"/>
+    <parameter name="city" class="java.lang.String"/>
+    <parameter name="repairNumber" class="java.lang.String"/>
+    <parameter name="dataOfPickup" class="java.lang.String"/>
+    <parameter name="dateOfAdmission" class="java.lang.String"/>
+    <parameter name="date" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <columnFooter>
+        <band height="733" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <textField>
+                <reportElement x="0" y="370" width="83" height="25" uuid="548cef42-550b-44f3-a2e7-20b748f90b8e"/>
+                <textElement>
+                    <font size="16"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Naprawa"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="-1" y="421" width="85" height="22" uuid="1c559672-1804-495f-976a-2767df6d68d4"/>
+                <textFieldExpression><![CDATA["Numer naprawy:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="157" y="420" width="83" height="19" uuid="47c02c17-0810-4992-bb68-4d1f7e46dd3d"/>
+                <textFieldExpression><![CDATA["Data przyjęcia:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="330" y="420" width="130" height="19" uuid="74a04107-1004-4f60-b42a-cbeb02fcddd4"/>
+                <textFieldExpression><![CDATA["Planowana data wydania:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="460" width="100" height="21" uuid="092e89c7-e152-40dc-a9ed-3e8a7654d0ec"/>
+                <textFieldExpression><![CDATA["Zakres naprawy:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="437" y="48" width="53" height="20" uuid="d73291ea-82cf-4491-b365-1bcc25790196"/>
+                <textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="493" y="52" width="60" height="13" uuid="bb17f16e-e4ef-4a62-b208-4aff9e27298b"/>
+                <textFieldExpression><![CDATA[$P{surname}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="455" y="103" width="98" height="13" uuid="18837f2d-e2dc-4042-9c89-f3205e4ebc7c"/>
+                <textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="430" y="240" width="80" height="19" uuid="d158696a-f14e-4ee2-b2c7-e9b4886136dc"/>
+                <textFieldExpression><![CDATA[$P{phoneNumber}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="270" width="42" height="19" uuid="392e4219-0fdb-46c2-8ca2-73aa60b0f0e8"/>
+                <textFieldExpression><![CDATA["Marka:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="270" width="40" height="18" uuid="e70494b0-66e1-4c11-b6b7-d890fe433fb6"/>
+                <textFieldExpression><![CDATA["Model:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="323" y="271" width="69" height="13" uuid="edff5bd4-4927-405f-ac4f-b6103e599faf"/>
+                <textFieldExpression><![CDATA["Rok produkcji"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="316" width="104" height="16" uuid="e1550202-817b-41ff-9b1e-2ec383c05a97"/>
+                <textFieldExpression><![CDATA["Numer rejestracyjny:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="208" y="320" width="60" height="14" uuid="5264f08f-047f-4b58-bcbf-da5af0942512"/>
+                <textFieldExpression><![CDATA["Numer VIN:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="388" y="319" width="52" height="16" uuid="307e5587-50c6-4d5a-a43c-77d96b0ae697"/>
+                <textFieldExpression><![CDATA["Przebieg:"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="50" y="272" width="65" height="15" uuid="2977bdb3-ec5f-4679-9e5d-34ea4b8eb024"/>
+                <textFieldExpression><![CDATA[$P{mark}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="190" y="270" width="110" height="14" uuid="a4bac325-74d3-4086-9216-ac81c7d409ab"/>
+                <textFieldExpression><![CDATA[$P{model}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="404" y="269" width="60" height="16" uuid="e601db90-f0d4-4924-ab43-ff2a95c8a613"/>
+                <textFieldExpression><![CDATA[$P{year}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="278" y="317" width="100" height="20" uuid="2aa4ddd8-baea-4f5b-87ec-14767fd2529f"/>
+                <textFieldExpression><![CDATA[$P{chassis}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="448" y="316" width="111" height="22" uuid="13e4442d-91ce-4db7-bec8-9aca6f6c9d72"/>
+                <textFieldExpression><![CDATA[$P{meter}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="118" y="316" width="80" height="17" uuid="1185ef97-648e-485b-a8b9-57faa9efac2e"/>
+                <textFieldExpression><![CDATA[$P{plateNumber}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="220" width="93" height="28" uuid="89c75589-55a6-4398-84e9-a42eec90c7f9"/>
+                <textElement>
+                    <font size="16"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Samochód"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="40" y="490" width="480" height="100" uuid="a591ceec-19d0-47f6-baee-2aa1f7c1aa34"/>
+                <textFieldExpression><![CDATA[$P{scopeOfWork}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="429" y="80" width="72" height="20" uuid="ecb9cf4e-efb7-454e-b33f-7aef20638b14"/>
+                <textFieldExpression><![CDATA[$P{street}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="503" y="83" width="21" height="19" uuid="5fbf742c-1f3a-45e5-9f4c-731442796b3a"/>
+                <textFieldExpression><![CDATA[$P{houseNumber}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="526" y="84" width="26" height="16" uuid="1e688288-a762-466b-beba-5700fcd3dcee"/>
+                <textFieldExpression><![CDATA[$P{apartmentNumber}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="481" y="118" width="28" height="12" uuid="457f0a8e-c6b9-417f-a945-f1bdf5af2667"/>
+                <textFieldExpression><![CDATA[$P{postCode}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="519" y="119" width="34" height="10" uuid="dc9929fd-eaa4-4774-b5f5-079115760f65"/>
+                <textFieldExpression><![CDATA[$P{city}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="90" y="421" width="59" height="16" uuid="3895a6a5-93f6-48f1-add5-0fffdd2ab0b3"/>
+                <textFieldExpression><![CDATA[$P{repairNumber}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="240" y="420" width="86" height="19" uuid="b3216ae2-b836-4476-8f03-c973f810e495"/>
+                <textFieldExpression><![CDATA[$P{dataOfPickup}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="464" y="419" width="90" height="18" uuid="91f2d66d-f227-4961-a66d-fdcb9b78e30f"/>
+                <textFieldExpression><![CDATA[$P{dateOfAdmission}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="155" y="120" width="262" height="30" uuid="0d8886c0-4c29-426a-9826-0b1e34d96c57"/>
+                <textElement>
+                    <font size="20"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Przyjęcie auta na warsztat"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="-1" y="50" width="147" height="17" uuid="ebb6c136-750f-45de-ab1c-39616344fd4d"/>
+                <textFieldExpression><![CDATA["LS Auto - Bavaria Car Service"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="-1" y="67" width="87" height="15" uuid="1d5f9557-5418-4796-b398-c2893b3928ef"/>
+                <textFieldExpression><![CDATA["NIP: 6951466511"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="-1" y="80" width="93" height="20" uuid="5fd9a7a9-8899-42ed-958d-4204ddbde844"/>
+                <textFieldExpression><![CDATA["REGON: 021984980"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="-1" y="100" width="83" height="15" uuid="cd613c2d-c069-45dc-b246-24c96909d52e"/>
+                <textFieldExpression><![CDATA["Ul. Międzyleska 6"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="115" width="80" height="18" uuid="b477007f-96b3-45a0-a626-316888d42346"/>
+                <textFieldExpression><![CDATA["50-514 Wrocław"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="430" y="680" width="100" height="30" uuid="732826c6-426d-414d-82b8-f61fe6ac0462"/>
+                <textFieldExpression><![CDATA["Podpis klienta"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="32" y="680" width="100" height="30" uuid="943dfc0a-94a8-402e-a928-9b77fdec0be1"/>
+                <textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="410" y="10" width="53" height="14" uuid="61181609-ee1f-4e2b-b5c3-f51e8d3bcff0"/>
+                <textFieldExpression><![CDATA["Wroclaw"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="470" y="10" width="100" height="20" uuid="5e8db3cf-4494-4159-9ea5-cb59dba1454d"/>
+                <textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnFooter>
+</jasperReport>

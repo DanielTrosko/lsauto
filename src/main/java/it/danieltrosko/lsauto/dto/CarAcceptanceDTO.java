@@ -34,7 +34,6 @@ public class CarAcceptanceDTO {
     //repair
 
     private Long repairId;
-    @NotBlank
     private String repairNumber;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfAdmission;
@@ -55,12 +54,12 @@ public class CarAcceptanceDTO {
     private String firstName;
     @NotBlank
     private String surname;
-
+    private String phoneNumber;
 
     //address
     private Long addressId;
     @NotBlank
-    private String phoneNumber;
+
     private String street;
     private String houseNumber;
     private String apartmentNumber;

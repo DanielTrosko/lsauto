@@ -44,7 +44,7 @@
                             <td th:text="${car.meterReading}"></td>
                             <td th:text="${car.firstName}"></td>
                             <td>
-                                <a th:href="@{/repair/addrepair(id=${car.getId()})}" style="color:black">Dodaj</a>
+                                <a th:href="@{/repair/addrepairtoexistcar(id=${car.getId()})}" style="color:black">Dodaj</a>
                             </td>
                         </tr>
                     </th:block>

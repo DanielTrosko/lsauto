@@ -65,6 +65,12 @@ public class RepairController {
         return "/repair/add_new_repair";
     }
 
+    @GetMapping(value = "/addrepairtoexistcar")
+    public String addRepairToExistCar(@RequestParam(value = "id") Long id, Model model){
+        model.addAttribute("acceptance", repairService.getAcceptanceCarWithExistCar(id));
+        return "/repair/add_new_repair_to_exist_car";
+    }
+
     @PostMapping(value = "/addnewacceptance")
     public String addNewAcceptance(@Valid @ModelAttribute("CarAcceptanceDTO") CarAcceptanceDTO carAcceptanceDTO) {
         carAcceptanceService.createAcceptance(carAcceptanceDTO);

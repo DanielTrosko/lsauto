@@ -13,6 +13,7 @@ public class ProductMapper {
         productDTO.setAmount(product.getAmount());
         productDTO.setLocation(product.getLocation());
         productDTO.setBrand(product.getBrand());
+        productDTO.setOemNumber(product.getOemNumber());
         return productDTO;
     }
 
@@ -24,6 +25,7 @@ public class ProductMapper {
         product.setAmount(productDTO.getAmount());
         product.setLocation(productDTO.getLocation());
         product.setBrand(productDTO.getBrand());
+        product.setOemNumber(productDTO.getOemNumber());
         return product;
     }
 }

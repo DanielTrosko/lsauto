@@ -19,10 +19,7 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "/getuser")
-    public UserDTO getUser(Long id) {
-        return userService.getUserById(id);
-    }
+
 
     @GetMapping(value = "/addnewuser")
     public String createnewUser(Model model) {
@@ -35,7 +32,7 @@ public class UserController {
     public String createUser(@Valid @ModelAttribute("UserDTO") UserDTO userDTO) {
 
         if (userDTO.getId() == null) {
-            userService.createUser(userDTO);
+            this.userService.createUser(userDTO);
         } else {
             this.userService.updateUser(userDTO);
         }

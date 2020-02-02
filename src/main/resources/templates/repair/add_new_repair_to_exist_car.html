@@ -19,7 +19,7 @@
     <div class="row justify-content-center">
 
 
-        <form th:object="${repair}" method="post" th:action="@{/repair/addnewacceptance}">
+        <form th:object="${acceptance}" method="post" th:action="@{/repair/addnewacceptance}">
             <input th:field="*{carId}" hidden="true"/>
             <input th:field="*{repairId}" hidden="true"/>
             <input th:field="*{userId}" hidden="true"/>
@@ -146,7 +146,7 @@
             <div class="row">
                 <div class="col">
                     <label for="repairNumber">Numer naprawy</label>
-                    <input id="repairNumber" type="text" class="form-control" th:field="*{repairNumber}"readonly>
+                    <input id="repairNumber" type="text" class="form-control" th:field="*{repairNumber}">
                     <p th:if="${#fields.hasErrors('repairNumber')}" th:errors="*{repairNumber}"></p><br>
                 </div>
                 <div class="col">

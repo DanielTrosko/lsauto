@@ -14,6 +14,7 @@ public class ProductDTO {
     private String name;
     @NotEmpty
     private String partNumber;
+    private String oemNumber;
     private Integer amount;
     @NotBlank
     private String location;

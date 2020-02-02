@@ -36,6 +36,42 @@ public class CarAcceptanceMapper {
         return acceptanceDTO;
     }
 
+    public static CarAcceptanceDTO toDTOWithRepair(Repair repair) {
+        CarAcceptanceDTO carAcceptanceDTO = new CarAcceptanceDTO();
+        Car car = repair.getCar();
+        User user = repair.getCar().getOwner();
+        Address address = repair.getCar().getOwner().getAddress();
+        carAcceptanceDTO.setCarId(car.getId());
+        carAcceptanceDTO.setMark(car.getMark());
+        carAcceptanceDTO.setModel(car.getModel());
+        carAcceptanceDTO.setYear(car.getYear());
+        carAcceptanceDTO.setPlateNumber(car.getPlateNumber());
+        carAcceptanceDTO.setChassisNumber(car.getChassisNumber());
+        carAcceptanceDTO.setMeterReading(car.getMeterReading());
+        carAcceptanceDTO.setRepairId(repair.getId());
+        carAcceptanceDTO.setRepairNumber(repair.getRepairNumber());
+        carAcceptanceDTO.setDateOfAdmission(repair.getDateOfAdmission());
+        carAcceptanceDTO.setDataOfPickup(repair.getDataOfPickup());
+        carAcceptanceDTO.setScopeOfWork(repair.getScopeOfWork());
+        carAcceptanceDTO.setStatus(repair.getStatus());
+        carAcceptanceDTO.setUserId(user.getId());
+        carAcceptanceDTO.setEmail(user.getEmail());
+        carAcceptanceDTO.setUsername(user.getUsername());
+        carAcceptanceDTO.setPassword(user.getPassword());
+        carAcceptanceDTO.setFirstName(user.getFirstName());
+        carAcceptanceDTO.setSurname(user.getSurame());
+        carAcceptanceDTO.setPhoneNumber(user.getPhoneNumber());
+        carAcceptanceDTO.setAddressId(address.getId());
+        carAcceptanceDTO.setStreet(address.getStreet());
+        carAcceptanceDTO.setHouseNumber(address.getHouseNumber());
+        carAcceptanceDTO.setApartmentNumber(address.getApartmentNumber());
+        carAcceptanceDTO.setPostCode(address.getPostCode());
+        carAcceptanceDTO.setCity(address.getCity());
+        return carAcceptanceDTO;
+
+    }
+
+
     public static CarDTO toCarDTO(CarAcceptanceDTO carAcceptanceDTO) {
         CarDTO car = new CarDTO();
         car.setId(carAcceptanceDTO.getCarId());
@@ -67,7 +103,8 @@ public class CarAcceptanceMapper {
 
         return user;
     }
-    public static Repair toRepairEntity(CarAcceptanceDTO carAcceptanceDTO){
+
+    public static Repair toRepairEntity(CarAcceptanceDTO carAcceptanceDTO) {
         Repair repair = new Repair();
         repair.setId(carAcceptanceDTO.getRepairId());
         repair.setRepairNumber(carAcceptanceDTO.getRepairNumber());
