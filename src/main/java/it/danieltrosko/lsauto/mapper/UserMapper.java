@@ -10,6 +10,7 @@ public class UserMapper {
         Address address = new Address();
         address.setId(userDTO.getAddressId());
         address.setCity(userDTO.getCity());
+        address.setApartmentNumber(userDTO.getApartmentNumber());
         address.setHouseNumber(userDTO.getHouseNumber());
         address.setPostCode(userDTO.getPostCode());
         address.setStreet(userDTO.getStreet());
@@ -32,6 +33,7 @@ public class UserMapper {
         Address address = user.getAddress();
         userDTO.setCity(address.getCity());
         userDTO.setHouseNumber(address.getHouseNumber());
+        userDTO.setApartmentNumber(address.getApartmentNumber());
         userDTO.setPostCode(address.getPostCode());
         userDTO.setStreet(address.getStreet());
         userDTO.setAddressId(address.getId());

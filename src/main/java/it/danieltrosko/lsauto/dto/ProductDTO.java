@@ -4,20 +4,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
 public class ProductDTO {
     private Long id;
-    @NotEmpty
+    @NotBlank(message = "To pole nie może być puste")
     private String name;
-    @NotEmpty
+    @NotBlank(message = "To pole nie może być puste")
     private String partNumber;
     private String oemNumber;
     private Integer amount;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String location;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String brand;
 }

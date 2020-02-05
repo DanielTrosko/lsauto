@@ -18,17 +18,17 @@ public class CarAcceptanceDTO {
 
     //car
     private Long carId;
-@NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String mark;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String model;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String year;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String plateNumber;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String chassisNumber;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String meterReading;
 
     //repair
@@ -39,27 +39,25 @@ public class CarAcceptanceDTO {
     private LocalDate dateOfAdmission;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataOfPickup;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String scopeOfWork;
     private RepairStatus status;
     private Car car;
 
     //user
     private Long userId;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String email;
     private String username;
     private String password;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String firstName;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String surname;
     private String phoneNumber;
 
     //address
     private Long addressId;
-    @NotBlank
-
     private String street;
     private String houseNumber;
     private String apartmentNumber;

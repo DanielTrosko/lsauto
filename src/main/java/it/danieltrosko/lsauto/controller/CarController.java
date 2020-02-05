@@ -3,8 +3,6 @@ package it.danieltrosko.lsauto.controller;
 import it.danieltrosko.lsauto.dto.CarDTO;
 import it.danieltrosko.lsauto.services.CarService;
 import it.danieltrosko.lsauto.services.UserService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,10 +28,14 @@ public class CarController {
 
 
     @GetMapping(value = "/addnewcar")
-    public String addNewCar(Model model) {
-        model.addAttribute("car", new CarDTO());
+    public String addNewCar(@RequestParam(value = "id", required = false) Long id, Model model) {
+        if (id == null) {
+            model.addAttribute("car", new CarDTO());
+        } else {
+            model.addAttribute("car", carService.getCarById(id));
+        }
         model.addAttribute("users", userService.getAllUser());
-        return "/car/add_new_car";
+        return "car/add_new_car";
     }
 
 

@@ -10,4 +10,5 @@ import java.util.List;
 
 public interface RepairRepository extends JpaRepository<Repair, Long> {
     List<Repair> getAllByStatusIsNot(RepairStatus repairStatus);
+    List<Repair> getAllByStatusIs(RepairStatus repairStatus);
 }

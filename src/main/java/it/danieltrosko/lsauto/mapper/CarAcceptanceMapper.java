@@ -2,7 +2,6 @@ package it.danieltrosko.lsauto.mapper;
 
 import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
 import it.danieltrosko.lsauto.dto.CarDTO;
-import it.danieltrosko.lsauto.dto.RepairDTO;
 import it.danieltrosko.lsauto.dto.UserDTO;
 import it.danieltrosko.lsauto.model.entites.Address;
 import it.danieltrosko.lsauto.model.entites.Car;

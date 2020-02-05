@@ -39,7 +39,12 @@ public class UserService {
         addressRepository.save(user.getAddress());
         userRepository.save(user);
     }
-    public List<UserDTO> getAllUser(){
+
+    public boolean checkEmailInDB(String email) {
+        return userRepository.getUserByEmail(email).isPresent();
+    }
+
+    public List<UserDTO> getAllUser() {
         return userRepository.findAll().stream().map(UserMapper::toDTO).collect(Collectors.toList());
     }
 

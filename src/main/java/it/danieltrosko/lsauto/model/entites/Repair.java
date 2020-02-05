@@ -32,6 +32,6 @@ public class Repair extends BaseEntity {
 
     @PostPersist
     private void repairNumber() {
-        this.setRepairNumber(LocalDate.now().getYear() + "/" + this.getId().toString());
+        this.setRepairNumber(LocalDate.now().getYear() + "/" + LocalDateTime.now().getMonthValue() + "/" + LocalDateTime.now().getDayOfMonth() + "/" + this.getId().toString());
     }
 }

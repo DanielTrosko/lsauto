@@ -1,12 +1,7 @@
 package it.danieltrosko.lsauto.services;
 
 import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
-import it.danieltrosko.lsauto.dto.RepairDTO;
-import it.danieltrosko.lsauto.dto.UserDTO;
 import it.danieltrosko.lsauto.mapper.CarAcceptanceMapper;
-import it.danieltrosko.lsauto.mapper.CarMapper;
-import it.danieltrosko.lsauto.mapper.RepairMapper;
-import it.danieltrosko.lsauto.mapper.UserMapper;
 import it.danieltrosko.lsauto.model.entites.Repair;
 import it.danieltrosko.lsauto.model.repositories.AddressRepository;
 import it.danieltrosko.lsauto.model.repositories.CarRepository;

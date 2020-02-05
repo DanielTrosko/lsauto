@@ -29,6 +29,7 @@
                         <th style="font-weight: bold">VIN</th>
                         <th style="font-weight: bold">Przebieg</th>
                         <th style="font-weight: bold">Właściciel</th>
+                        <th style="font-weight: bold">Edytuj</th>
                         <th style="font-weight: bold">Dodaj naprawe</th>
                     </tr>
                     </thead>
@@ -36,13 +37,16 @@
                     <th:block th:each="car:${carlist}">
                         <tr>
                             <td th:text="${car.getId()}"></td>
-                            <td th:text="${car.mark}"></td>
-                            <td th:text="${car.model}"></td>
+                            <td th:text="${car.mark.toUpperCase()}"></td>
+                            <td th:text="${car.model.toUpperCase()}"></td>
                             <td th:text="${car.year}"></td>
-                            <td th:text="${car.plateNumber}"></td>
-                            <td th:text="${car.chassisNumber}"></td>
+                            <td th:text="${car.plateNumber.toUpperCase()}"></td>
+                            <td th:text="${car.chassisNumber.toUpperCase()}"></td>
                             <td th:text="${car.meterReading}"></td>
                             <td th:text="${car.firstName}"></td>
+                            <td>
+                                <a th:href="@{/car/addnewcar(id=${car.getId()})}" style="color:black">Edytuj</a>
+                            </td>
                             <td>
                                 <a th:href="@{/repair/addrepairtoexistcar(id=${car.getId()})}" style="color:black">Dodaj</a>
                             </td>

@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
@@ -14,12 +13,12 @@ public class UserDTO {
     private String email;
     private String username;
     private String password;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String firstName;
-    @NotBlank
+    @NotBlank(message = "To pole nie może być puste")
     private String surname;
     private Long addressId;
-    @NotEmpty
+    @NotBlank(message = "To pole nie może być puste")
     private String phoneNumber;
     private String street;
     private String houseNumber;

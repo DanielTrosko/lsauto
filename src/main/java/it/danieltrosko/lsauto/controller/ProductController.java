@@ -1,6 +1,5 @@
 package it.danieltrosko.lsauto.controller;
 
-import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
 import it.danieltrosko.lsauto.model.repositories.ProductRepository;
 import it.danieltrosko.lsauto.services.ProductService;
 import org.springframework.stereotype.Controller;
@@ -23,6 +22,6 @@ public class ProductController {
     @GetMapping(value = "/getproduct")
     public String getAllProduct(Model model) {
         model.addAttribute("productList", productService.getAllProductList());
-        return "/product/show_all_product";
+        return "product/show_all_product";
     }
 }

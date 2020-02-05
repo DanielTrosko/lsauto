@@ -19,6 +19,9 @@
                 <h2>Forumlarz samochodu</h2>
                 <form th:object="${car}" method="post" th:action="@{/car/createnewcar}">
                     <input th:field="*{id}" hidden="true"/>
+                    <input th:field="*{firstName}" hidden="true"/>
+                    <input th:field="*{surname}" hidden="true"/>
+                    <input th:field="*{email}" hidden="true"/>
 
                     <div class="md-form">
                         <label for="mark">Marka</label>

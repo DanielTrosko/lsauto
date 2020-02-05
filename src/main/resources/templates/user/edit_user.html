@@ -18,13 +18,13 @@
             <b> <span style="color:green" th:if="${status != null}"  th:text="${status}">status</span></b>
             <div>
                 <h2>Forumlarz klienta</h2>
-                <form th:object="${user}" method="post" th:action="@{/user/createuser}">
+                <form th:object="${user}" method="post" th:action="@{/user/edituser}">
                     <input th:field="*{id}" hidden="true"/>
                     <input th:field="*{addressId}" hidden="true"/>
 
                     <div class="md-form">
                         <label for="email">E-mail</label>
-                        <input id="email" type="text" class="form-control" th:field="*{email}">
+                        <input id="email" type="text" class="form-control" th:field="*{email}"readonly>
                         <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br>
                     </div>
 

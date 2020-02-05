@@ -16,12 +16,10 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <b> <span style="color:green" th:if="${status != null}"  th:text="${status}">status</span></b>
-
             <div class="col-md-12 col-sm-12">
                 <table class="table">
                     <thead>
-                    <tr>Lista aktualnych napraw</tr>
+                    <tr>Historia napraw</tr>
                     <tr>
                         <th style="font-weight: bold">Numer naprawy</th>
                         <th style="font-weight: bold">Data przyjęcia</th>
@@ -37,7 +35,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <th:block th:each="car:${currentrepairs}">
+                    <th:block th:each="car:${history}">
                         <tr>
                             <td th:text="${car.repairNumber}"></td>
                             <td th:text="${car.dateOfAdmission}"></td>

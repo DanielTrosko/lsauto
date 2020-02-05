@@ -2,6 +2,7 @@ package it.danieltrosko.lsauto.model.entites;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

@@ -6,7 +6,6 @@ import it.danieltrosko.lsauto.model.repositories.RepairRepository;
 import net.sf.jasperreports.engine.*;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;

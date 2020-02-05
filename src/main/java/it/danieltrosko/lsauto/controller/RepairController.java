@@ -31,27 +31,29 @@ public class RepairController {
 
 
     @PostMapping(value = "/addnewrepair")
-    public String addNewRepair(@Valid @ModelAttribute("RepairDTO") RepairDTO repairDTO) {
+    public String addNewRepair(@Valid @ModelAttribute("RepairDTO") RepairDTO repairDTO, Model model) {
         if (repairDTO.getId() == null) {
-            repairService.createRepair(repairDTO);
+            return "redirect:currentrepairs";
         } else {
             repairService.updateRepair(repairDTO);
+            model.addAttribute("status", "Naprawa " + repairDTO.getRepairNumber() + " została zaktualizowana");
+            model.addAttribute("currentrepairs", repairService.getCurrentRepair());
+
         }
-        return "/repair/current_repairs";
+        return "repair/current_repairs";
     }
 
     @GetMapping(value = "/currentrepairs")
     public String currentRepair(Model model) {
         model.addAttribute("currentrepairs", repairService.getCurrentRepair());
-        return "/repair/current_repairs";
+        return "repair/current_repairs";
     }
 
     @GetMapping(value = "/getonerepair")
-    public String getOneRepair(@RequestParam(value = "id") Long id, Model model){
+    public String getOneRepair(@RequestParam(value = "id") Long id, Model model) {
         model.addAttribute("repair", repairService.getRepairById(id));
-        return "/repair/edit_repair";
+        return "repair/edit_repair";
     }
-
 
 
     @GetMapping(value = "/addrepair")
@@ -62,19 +64,24 @@ public class RepairController {
         } else {
             model.addAttribute("repair", new CarAcceptanceDTO());
         }
-        return "/repair/add_new_repair";
+        return "repair/add_new_repair";
     }
 
     @GetMapping(value = "/addrepairtoexistcar")
-    public String addRepairToExistCar(@RequestParam(value = "id") Long id, Model model){
+    public String addRepairToExistCar(@RequestParam(value = "id") Long id, Model model) {
         model.addAttribute("acceptance", repairService.getAcceptanceCarWithExistCar(id));
-        return "/repair/add_new_repair_to_exist_car";
+        return "repair/add_new_repair_to_exist_car";
     }
 
     @PostMapping(value = "/addnewacceptance")
     public String addNewAcceptance(@Valid @ModelAttribute("CarAcceptanceDTO") CarAcceptanceDTO carAcceptanceDTO) {
         carAcceptanceService.createAcceptance(carAcceptanceDTO);
         return "redirect:/repair/currentrepairs";
+    }
+    @GetMapping(value = "/repairhistory")
+    public String gethistoryOfReapir(Model model){
+        model.addAttribute("history", repairService.getRepairHistory());
+        return "repair/history_repair";
     }
 
 }
