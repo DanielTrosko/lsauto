@@ -31,7 +31,7 @@ public class Repair extends BaseEntity {
     private Car car;
 
     @PostPersist
-    private void ensureId() {
+    private void repairNumber() {
         this.setRepairNumber(LocalDate.now().getYear() + "/" + this.getId().toString());
     }
 }

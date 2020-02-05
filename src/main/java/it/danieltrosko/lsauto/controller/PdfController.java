@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.SQLException;
 
 @Controller
 @RequestMapping(value = "/pdf")
@@ -21,7 +20,7 @@ public class PdfController {
     }
 
     @GetMapping(value = "/caracceptance")
-    public ResponseEntity<byte[]> getCarAcceptance(@RequestParam(value = "id") Long id) throws SQLException, JRException {
+    public ResponseEntity<byte[]> getCarAcceptance(@RequestParam(value = "id") Long id) throws JRException {
 
         byte[] pdf = pdfService.getCarAcceptancePDF(id);
         return ResponseEntity.ok()

@@ -29,6 +29,8 @@
                         <th style="font-weight: bold">Nr. Rejestracyjny</th>
                         <th style="font-weight: bold">Mechanik</th>
                         <th style="font-weight: bold">Status naprawy</th>
+                        <th style="font-weight: bold">Edycja</th>
+                        <th style="font-weight: bold">Dokument</th>
 
                     </tr>
                     </thead>
@@ -45,6 +47,9 @@
                             <td th:text="${car.status}"></td>
                             <td>
                                 <a th:href="@{/repair/getonerepair(id=${car.getId()})}" style="color:black">Edytuj</a>
+                            </td>
+                            <td>
+                                <a th:href="@{/pdf/caracceptance(id=${car.getId()})}" style="color:black">PDF</a>
                             </td>
                         </tr>
                     </th:block>

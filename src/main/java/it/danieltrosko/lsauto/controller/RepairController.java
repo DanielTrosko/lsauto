@@ -37,7 +37,7 @@ public class RepairController {
         } else {
             repairService.updateRepair(repairDTO);
         }
-        return "redirect:/repair/currentrepairs";
+        return "/repair/current_repairs";
     }
 
     @GetMapping(value = "/currentrepairs")
@@ -74,7 +74,7 @@ public class RepairController {
     @PostMapping(value = "/addnewacceptance")
     public String addNewAcceptance(@Valid @ModelAttribute("CarAcceptanceDTO") CarAcceptanceDTO carAcceptanceDTO) {
         carAcceptanceService.createAcceptance(carAcceptanceDTO);
-        return "/repair/current_repairs";
+        return "redirect:/repair/currentrepairs";
     }
 
 }

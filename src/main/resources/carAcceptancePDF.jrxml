@@ -31,26 +31,26 @@
         <band height="733" splitType="Stretch">
             <property name="com.jaspersoft.studio.unit.height" value="px"/>
             <textField>
-                <reportElement x="0" y="370" width="83" height="25" uuid="548cef42-550b-44f3-a2e7-20b748f90b8e"/>
+                <reportElement x="5" y="430" width="83" height="25" uuid="548cef42-550b-44f3-a2e7-20b748f90b8e"/>
                 <textElement>
                     <font size="16"/>
                 </textElement>
                 <textFieldExpression><![CDATA["Naprawa"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="-1" y="421" width="85" height="22" uuid="1c559672-1804-495f-976a-2767df6d68d4"/>
+                <reportElement x="4" y="481" width="85" height="22" uuid="1c559672-1804-495f-976a-2767df6d68d4"/>
                 <textFieldExpression><![CDATA["Numer naprawy:"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="157" y="420" width="83" height="19" uuid="47c02c17-0810-4992-bb68-4d1f7e46dd3d"/>
+                <reportElement x="162" y="480" width="83" height="19" uuid="47c02c17-0810-4992-bb68-4d1f7e46dd3d"/>
                 <textFieldExpression><![CDATA["Data przyjęcia:"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="330" y="420" width="130" height="19" uuid="74a04107-1004-4f60-b42a-cbeb02fcddd4"/>
+                <reportElement x="335" y="480" width="130" height="19" uuid="74a04107-1004-4f60-b42a-cbeb02fcddd4"/>
                 <textFieldExpression><![CDATA["Planowana data wydania:"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="0" y="460" width="100" height="21" uuid="092e89c7-e152-40dc-a9ed-3e8a7654d0ec"/>
+                <reportElement x="5" y="520" width="100" height="21" uuid="092e89c7-e152-40dc-a9ed-3e8a7654d0ec"/>
                 <textFieldExpression><![CDATA["Zakres naprawy:"]]></textFieldExpression>
             </textField>
             <textField>
@@ -86,7 +86,7 @@
                 <textFieldExpression><![CDATA["Numer rejestracyjny:"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="208" y="320" width="60" height="14" uuid="5264f08f-047f-4b58-bcbf-da5af0942512"/>
+                <reportElement x="210" y="317" width="60" height="14" uuid="5264f08f-047f-4b58-bcbf-da5af0942512"/>
                 <textFieldExpression><![CDATA["Numer VIN:"]]></textFieldExpression>
             </textField>
             <textField>
@@ -125,7 +125,7 @@
                 <textFieldExpression><![CDATA["Samochód"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="40" y="490" width="480" height="100" uuid="a591ceec-19d0-47f6-baee-2aa1f7c1aa34"/>
+                <reportElement x="45" y="550" width="480" height="100" uuid="a591ceec-19d0-47f6-baee-2aa1f7c1aa34"/>
                 <textFieldExpression><![CDATA[$P{scopeOfWork}]]></textFieldExpression>
             </textField>
             <textField>
@@ -149,15 +149,15 @@
                 <textFieldExpression><![CDATA[$P{city}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="90" y="421" width="59" height="16" uuid="3895a6a5-93f6-48f1-add5-0fffdd2ab0b3"/>
+                <reportElement x="95" y="481" width="59" height="16" uuid="3895a6a5-93f6-48f1-add5-0fffdd2ab0b3"/>
                 <textFieldExpression><![CDATA[$P{repairNumber}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="240" y="420" width="86" height="19" uuid="b3216ae2-b836-4476-8f03-c973f810e495"/>
+                <reportElement x="245" y="480" width="86" height="19" uuid="b3216ae2-b836-4476-8f03-c973f810e495"/>
                 <textFieldExpression><![CDATA[$P{dataOfPickup}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="464" y="419" width="90" height="18" uuid="91f2d66d-f227-4961-a66d-fdcb9b78e30f"/>
+                <reportElement x="469" y="479" width="90" height="18" uuid="91f2d66d-f227-4961-a66d-fdcb9b78e30f"/>
                 <textFieldExpression><![CDATA[$P{dateOfAdmission}]]></textFieldExpression>
             </textField>
             <textField>
@@ -165,7 +165,7 @@
                 <textElement>
                     <font size="20"/>
                 </textElement>
-                <textFieldExpression><![CDATA["Przyjęcie auta na warsztat"]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Przyjecie auta na warsztat"]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="-1" y="50" width="147" height="17" uuid="ebb6c136-750f-45de-ab1c-39616344fd4d"/>
@@ -188,12 +188,12 @@
                 <textFieldExpression><![CDATA["50-514 Wrocław"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="430" y="680" width="100" height="30" uuid="732826c6-426d-414d-82b8-f61fe6ac0462"/>
-                <textFieldExpression><![CDATA["Podpis klienta"]]></textFieldExpression>
+                <reportElement x="404" y="680" width="126" height="30" uuid="732826c6-426d-414d-82b8-f61fe6ac0462"/>
+                <textFieldExpression><![CDATA["Podpis zleceniodawcy"]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="32" y="680" width="100" height="30" uuid="943dfc0a-94a8-402e-a928-9b77fdec0be1"/>
-                <textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+                <reportElement x="32" y="680" width="148" height="30" uuid="943dfc0a-94a8-402e-a928-9b77fdec0be1"/>
+                <textFieldExpression><![CDATA["Podpis zleceniobiorcy"]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="410" y="10" width="53" height="14" uuid="61181609-ee1f-4e2b-b5c3-f51e8d3bcff0"/>
@@ -202,6 +202,10 @@
             <textField>
                 <reportElement x="470" y="10" width="100" height="20" uuid="5e8db3cf-4494-4159-9ea5-cb59dba1454d"/>
                 <textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="377" width="553" height="43" uuid="61292483-ef9b-404a-b5cb-b6b9f466135e"/>
+                <textFieldExpression><![CDATA["Jestem swiadomy, ze czesci nieoryginalne i uzywane nie musza spelniac wszystkich norm technologicznych.Wiem, ze w czasie naprawy moga wystapic nieprzewidziane przeszkody techniczne i koszt naprawy moze ulec zmianie."]]></textFieldExpression>
             </textField>
         </band>
     </columnFooter>

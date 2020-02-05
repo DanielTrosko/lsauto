@@ -12,6 +12,7 @@
     <artifactId>lsauto</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>lsauto</name>
+    <packaging>jar</packaging>
     <description>Workshop project for LS Auto</description>
 
     <properties>

@@ -22,7 +22,7 @@ public class PdfService {
     }
 
 
-    public byte[] getCarAcceptancePDF(Long id) throws JRException, SQLException {
+    public byte[] getCarAcceptancePDF(Long id) throws JRException {
         return JasperReportService.generatePDF(getParamFromDB(id));
 
     }
