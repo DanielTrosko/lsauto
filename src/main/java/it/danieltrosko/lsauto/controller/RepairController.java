@@ -46,6 +46,7 @@ public class RepairController {
     @GetMapping(value = "/currentrepairs")
     public String currentRepair(Model model) {
         model.addAttribute("currentrepairs", repairService.getCurrentRepair());
+
         return "repair/current_repairs";
     }
 

@@ -25,7 +25,7 @@ public class Car extends BaseEntity {
     private String chassisNumber;
     @Column(nullable = false)
     private String meterReading;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User owner;
 

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>LS Auto - Bavaria Car Service</title>
+</head>
+<body>
+<div class="container">
+    <header th:insert="header.html"></header>
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Marka</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.mark}"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Model</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.model}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Oznaczenie silnika</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.engineDesignation}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Kod silnika</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.engineCode}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Rok</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.year}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Nr. rejestracyjny</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.plateNumber}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">VIN</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.chassisNumber}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Przebieg</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.meterReading}"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-dark">Właściciel</a>
+                    </div>
+                    <div class="col">
+                        <a class="list-group-item list-group-item-action list-group-item-light"
+                           th:text="${car.firstName}"></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <footer th:insert="footer.html" class="mt-5"></footer>
+</body>
+</html>

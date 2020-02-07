@@ -30,6 +30,8 @@
                     <input th:field="*{car.owner.email}" hidden="true"/>
                     <input th:field="*{car.owner.firstName}" hidden="true"/>
                     <input th:field="*{car.owner.surame}" hidden="true"/>
+                    <input th:field="*{car.engineCode}" hidden="true"/>
+                    <input th:field="*{car.engineDesignation}" hidden="true"/>
 
 
                     <div class="md-form">
@@ -50,11 +52,7 @@
                         <p th:if="${#fields.hasErrors('dataOfPickup')}" th:errors="*{dataOfPickup}"></p><br>
                     </div>
 
-                    <div class="md-form">
-                        <label for="scopeOfWork">Zakres prac</label>
-                        <input id="scopeOfWork" type="text" class="form-control" th:field="*{scopeOfWork}">
-                        <p th:if="${#fields.hasErrors('scopeOfWork')}" th:errors="*{scopeOfWork}"></p><br>
-                    </div>
+
 
                     <div class="md-form">
                         <label for="plateNumber">Nr. rejestracyjny</label>
@@ -69,6 +67,14 @@
                                     th:value="${status}" th:text="${status}"></option>
                         </select>
                     </div>
+
+                    <div class="md-form">
+                        <label for="scopeOfWork">Zakres prac</label>
+                        <textarea class="form-control" id="scopeOfWork" th:field="*{scopeOfWork}" rows="3"></textarea>
+                        <p th:if="${#fields.hasErrors('scopeOfWork')}" th:errors="*{scopeOfWork}"></p><br>
+                    </div>
+
+
                     <br>
 
                     <button value="submit" type="submit" class="btn btn-primary">Zapisz</button>

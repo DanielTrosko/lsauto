@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Getter
@@ -43,6 +44,10 @@ public class CarAcceptanceDTO {
     private LocalDate dataOfPickup;
     @NotBlank(message = "To pole nie może być puste")
     private String scopeOfWork;
+    @NotEmpty
+    private String faultsReportedByCustomer;
+    private String estimatedRepairPrice;
+    private String finalRepairPrice;
     private RepairStatus status;
     private Car car;
 

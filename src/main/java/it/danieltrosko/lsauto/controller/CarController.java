@@ -40,14 +40,20 @@ public class CarController {
 
 
     @PostMapping(value = "/createnewcar")
-    public String createCar(@Valid @ModelAttribute("CarDTO") CarDTO carDTO) {
+    public String createCar(@Valid @ModelAttribute("CarDTO") CarDTO carDTO, Model model) {
         if (carDTO.getId() == null) {
             carService.createCar(carDTO);
         } else {
             carService.createCar(carDTO);
         }
+        model.addAttribute("carlist", carService.getAllCars());
         return "index";
     }
 
+    @GetMapping(value = "/showcar")
+    public String showCar(@RequestParam("id") Long id, Model model) {
+        model.addAttribute("car", carService.getCarById(id));
+        return "car/show_car";
+    }
 
 }

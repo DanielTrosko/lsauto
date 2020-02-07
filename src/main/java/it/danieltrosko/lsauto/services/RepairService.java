@@ -38,11 +38,11 @@ public class RepairService {
     }
 
     public List<RepairDTO> getCurrentRepair() {
-        return repairRepository.getAllByStatusIsNot(RepairStatus.DO_ODBIORU).stream().map(RepairMapper::toDTO).collect(Collectors.toList());
+        return repairRepository.getAllByStatusIsNot(RepairStatus.TO_RECEIVE).stream().map(RepairMapper::toDTO).collect(Collectors.toList());
     }
 
     public List<RepairDTO> getRepairHistory(){
-        return repairRepository.getAllByStatusIs(RepairStatus.DO_ODBIORU).stream().map(RepairMapper::toDTO).collect(Collectors.toList());
+        return repairRepository.getAllByStatusIs(RepairStatus.TO_RECEIVE).stream().map(RepairMapper::toDTO).collect(Collectors.toList());
     }
 
     public CarAcceptanceDTO getExistCarAcceptance(Long id) {

@@ -16,7 +16,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-14 col-sm-14">
                 <table class="table">
                     <thead>
                     <tr>Historia napraw</tr>
@@ -24,11 +24,14 @@
                         <th style="font-weight: bold">Numer naprawy</th>
                         <th style="font-weight: bold">Data przyjęcia</th>
                         <th style="font-weight: bold">Planowana data wydania</th>
+                        <th style="font-weight: bold">Usterki zgłoszone przez klienta</th>
                         <th style="font-weight: bold">Zakres napraw</th>
                         <th style="font-weight: bold">Model</th>
                         <th style="font-weight: bold">Nr. Rejestracyjny</th>
                         <th style="font-weight: bold">Mechanik</th>
                         <th style="font-weight: bold">Status naprawy</th>
+                        <th style="font-weight: bold">Szacunkowa cena naprawy</th>
+                        <th style="font-weight: bold">Ostateczna cena naprawy</th>
                         <th style="font-weight: bold">Edycja</th>
                         <th style="font-weight: bold">Dokument</th>
 
@@ -40,11 +43,14 @@
                             <td th:text="${car.repairNumber}"></td>
                             <td th:text="${car.dateOfAdmission}"></td>
                             <td th:text="${car.dataOfPickup}"></td>
+                            <td th:text="${car.faultsReportedByCustomer}"></td>
                             <td th:text="${car.scopeOfWork}"></td>
                             <td th:text="${car.car.model.toUpperCase()}"></td>
                             <td th:text="${car.car.getChassisNumber().toUpperCase()}"></td>
                             <td aria-atomic="true">Robert</td>
                             <td th:text="${car.status}"></td>
+                            <td th:text="${car.estimatedRepairPrice}"></td>
+                            <td th:text="${car.finalRepairPrice}"></td>
                             <td>
                                 <a th:href="@{/repair/getonerepair(id=${car.getId()})}" style="color:black">Edytuj</a>
                             </td>

@@ -53,6 +53,9 @@ public class CarAcceptanceMapper {
         carAcceptanceDTO.setRepairNumber(repair.getRepairNumber());
         carAcceptanceDTO.setDateOfAdmission(repair.getDateOfAdmission());
         carAcceptanceDTO.setDataOfPickup(repair.getDataOfPickup());
+        carAcceptanceDTO.setFaultsReportedByCustomer(repair.getFaultsReportedByCustomer());
+        carAcceptanceDTO.setEstimatedRepairPrice(repair.getEstimatedRepairPrice());
+        carAcceptanceDTO.setFinalRepairPrice(repair.getFinalRepairPrice());
         carAcceptanceDTO.setScopeOfWork(repair.getScopeOfWork());
         carAcceptanceDTO.setStatus(repair.getStatus());
         carAcceptanceDTO.setUserId(user.getId());
@@ -78,6 +81,9 @@ public class CarAcceptanceMapper {
         repair.setRepairNumber(carAcceptanceDTO.getRepairNumber());
         repair.setDateOfAdmission(carAcceptanceDTO.getDateOfAdmission());
         repair.setDataOfPickup(carAcceptanceDTO.getDataOfPickup());
+        repair.setFaultsReportedByCustomer(carAcceptanceDTO.getFaultsReportedByCustomer());
+        repair.setEstimatedRepairPrice(carAcceptanceDTO.getEstimatedRepairPrice());
+        repair.setFinalRepairPrice(carAcceptanceDTO.getFinalRepairPrice());
         repair.setScopeOfWork(carAcceptanceDTO.getScopeOfWork());
         repair.setStatus(carAcceptanceDTO.getStatus());
 

@@ -15,6 +15,9 @@ public class RepairMapper {
         repairDTO.setRepairNumber(repair.getRepairNumber());
         repairDTO.setDateOfAdmission(repair.getDateOfAdmission());
         repairDTO.setDataOfPickup(repair.getDataOfPickup());
+        repairDTO.setFaultsReportedByCustomer(repair.getFaultsReportedByCustomer());
+        repairDTO.setEstimatedRepairPrice(repair.getEstimatedRepairPrice());
+        repairDTO.setFinalRepairPrice(repair.getFinalRepairPrice());
         repairDTO.setScopeOfWork(repair.getScopeOfWork());
         repairDTO.setStatus(repair.getStatus());
         repairDTO.setCar(repair.getCar());
@@ -27,6 +30,9 @@ public class RepairMapper {
         repair.setRepairNumber(repairDTO.getRepairNumber());
         repair.setDateOfAdmission(repairDTO.getDateOfAdmission());
         repair.setDataOfPickup(repairDTO.getDataOfPickup());
+        repair.setFaultsReportedByCustomer(repairDTO.getFaultsReportedByCustomer());
+        repair.setEstimatedRepairPrice(repairDTO.getEstimatedRepairPrice());
+        repair.setFaultsReportedByCustomer(repairDTO.getFaultsReportedByCustomer());
         repair.setScopeOfWork(repairDTO.getScopeOfWork());
         repair.setCar(repairDTO.getCar());
         repair.setStatus(repairDTO.getStatus());

@@ -27,7 +27,9 @@ public class CarService {
     }
 
     public void createCar(CarDTO carDTO) {
-        carRepository.save(CarMapper.toEntity(carDTO));
+        Car car = CarMapper.toEntity(carDTO);
+        userRepository.save(car.getOwner());
+        carRepository.save(car);
     }
     public void updateCar(CarDTO carDTO) {
         carRepository.save(CarMapper.toEntity(carDTO));
