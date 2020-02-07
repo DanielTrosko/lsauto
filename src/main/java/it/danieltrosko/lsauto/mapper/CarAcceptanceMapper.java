@@ -1,8 +1,6 @@
 package it.danieltrosko.lsauto.mapper;
 
 import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
-import it.danieltrosko.lsauto.dto.CarDTO;
-import it.danieltrosko.lsauto.dto.UserDTO;
 import it.danieltrosko.lsauto.model.entites.Address;
 import it.danieltrosko.lsauto.model.entites.Car;
 import it.danieltrosko.lsauto.model.entites.Repair;
@@ -17,6 +15,8 @@ public class CarAcceptanceMapper {
         acceptanceDTO.setCarId(car.getId());
         acceptanceDTO.setMark(car.getMark());
         acceptanceDTO.setModel(car.getModel());
+        acceptanceDTO.setEngineDesignation(car.getEngineDesignation());
+        acceptanceDTO.setEngineCode(car.getEngineCode());
         acceptanceDTO.setYear(car.getYear());
         acceptanceDTO.setPlateNumber(car.getPlateNumber());
         acceptanceDTO.setChassisNumber(car.getChassisNumber());
@@ -43,6 +43,8 @@ public class CarAcceptanceMapper {
         carAcceptanceDTO.setCarId(car.getId());
         carAcceptanceDTO.setMark(car.getMark());
         carAcceptanceDTO.setModel(car.getModel());
+        carAcceptanceDTO.setEngineDesignation(car.getEngineDesignation());
+        carAcceptanceDTO.setEngineCode(car.getEngineCode());
         carAcceptanceDTO.setYear(car.getYear());
         carAcceptanceDTO.setPlateNumber(car.getPlateNumber());
         carAcceptanceDTO.setChassisNumber(car.getChassisNumber());
@@ -68,39 +70,6 @@ public class CarAcceptanceMapper {
         carAcceptanceDTO.setCity(address.getCity());
         return carAcceptanceDTO;
 
-    }
-
-
-    public static CarDTO toCarDTO(CarAcceptanceDTO carAcceptanceDTO) {
-        CarDTO car = new CarDTO();
-        car.setId(carAcceptanceDTO.getCarId());
-        car.setMark(carAcceptanceDTO.getMark());
-        car.setModel(carAcceptanceDTO.getModel());
-        car.setYear(carAcceptanceDTO.getYear());
-        car.setPlateNumber(carAcceptanceDTO.getPlateNumber());
-        car.setChassisNumber(carAcceptanceDTO.getChassisNumber());
-        car.setMeterReading(carAcceptanceDTO.getMeterReading());
-        return car;
-    }
-
-    public static UserDTO toUserDTO(CarAcceptanceDTO carAcceptanceDTO) {
-        Address address = new Address();
-        address.setId(carAcceptanceDTO.getAddressId());
-        address.setCity(carAcceptanceDTO.getCity());
-        address.setHouseNumber(carAcceptanceDTO.getHouseNumber());
-        address.setPostCode(carAcceptanceDTO.getPostCode());
-        address.setStreet(carAcceptanceDTO.getStreet());
-
-        UserDTO user = new UserDTO();
-        user.setId(carAcceptanceDTO.getUserId());
-        user.setEmail(carAcceptanceDTO.getEmail());
-        user.setUsername(carAcceptanceDTO.getUsername());
-        user.setPassword(carAcceptanceDTO.getPassword());
-        user.setFirstName(carAcceptanceDTO.getFirstName());
-        user.setSurname(carAcceptanceDTO.getSurname());
-        user.setPhoneNumber(carAcceptanceDTO.getPhoneNumber());
-
-        return user;
     }
 
     public static Repair toRepairEntity(CarAcceptanceDTO carAcceptanceDTO) {

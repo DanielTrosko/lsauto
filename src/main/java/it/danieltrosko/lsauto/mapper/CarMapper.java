@@ -30,6 +30,8 @@ public class CarMapper {
         carDTO.setId(car.getId());
         carDTO.setMark(car.getMark());
         carDTO.setModel(car.getModel());
+        carDTO.setEngineCode(car.getEngineCode());
+        carDTO.setEngineDesignation(car.getEngineDesignation());
         carDTO.setYear(car.getYear());
         carDTO.setChassisNumber(car.getChassisNumber());
         carDTO.setMeterReading(car.getMeterReading());
@@ -45,6 +47,8 @@ public class CarMapper {
         car.setId(carDTO.getId());
         car.setMark(carDTO.getMark());
         car.setModel(carDTO.getModel());
+        car.setEngineDesignation(carDTO.getEngineDesignation());
+        car.setEngineCode(carDTO.getEngineCode());
         car.setYear(carDTO.getYear());
         car.setChassisNumber(carDTO.getChassisNumber());
         car.setMeterReading(carDTO.getMeterReading());

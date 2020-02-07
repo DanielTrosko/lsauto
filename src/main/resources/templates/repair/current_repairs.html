@@ -43,8 +43,8 @@
                             <td th:text="${car.dateOfAdmission}"></td>
                             <td th:text="${car.dataOfPickup}"></td>
                             <td th:text="${car.scopeOfWork}"></td>
-                            <td th:text="${car.car.model}"></td>
-                            <td th:text="${car.car.getChassisNumber()}"></td>
+                            <td th:text="${car.car.model.toUpperCase()}"></td>
+                            <td th:text="${car.car.getChassisNumber().toUpperCase()}"></td>
                             <td aria-atomic="true">Robert</td>
                             <td th:text="${car.status}"></td>
                             <td>

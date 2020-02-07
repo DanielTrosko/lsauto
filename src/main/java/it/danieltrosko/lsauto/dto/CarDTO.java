@@ -17,6 +17,8 @@ public class CarDTO {
     private String mark;
     @NotBlank(message = "To pole nie może być puste")
     private String model;
+    private String engineDesignation;
+    private String engineCode;
     @NotBlank(message = "To pole nie może być puste")
     private String year;
     @NotBlank(message = "To pole nie może być puste")

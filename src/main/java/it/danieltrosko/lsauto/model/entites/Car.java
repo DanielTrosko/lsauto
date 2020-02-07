@@ -14,6 +14,10 @@ public class Car extends BaseEntity {
     @Column(nullable = false)
     private String model;
     @Column(nullable = false)
+    private String engineDesignation;
+    @Column(nullable = false)
+    private String engineCode;
+    @Column(nullable = false)
     private String year;
     @Column(nullable = false)
     private String plateNumber;

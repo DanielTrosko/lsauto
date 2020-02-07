@@ -36,6 +36,18 @@
                     </div>
 
                     <div class="md-form">
+                        <label for="model">Oznaczenie silnika</label>
+                        <input id="engineDesignation" type="text" class="form-control" th:field="*{engineDesignation}">
+                        <p th:if="${#fields.hasErrors('engineDesignation')}" th:errors="*{engineDesignation}"></p><br>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="model">Kod silnika</label>
+                        <input id="engineCode" type="text" class="form-control" th:field="*{engineCode}">
+                        <p th:if="${#fields.hasErrors('engineCode')}" th:errors="*{engineCode}"></p><br>
+                    </div>
+
+                    <div class="md-form">
                         <label for="year">Rok produkcji</label>
                         <input id="year" type="text" class="form-control" th:field="*{year}">
                         <p th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></p><br>
@@ -69,7 +81,7 @@
                         </select>
                     </div>
 
-
+                        <br>
                     <button value="submit" type="submit" class="btn btn-primary">Zapisz</button>
                 </form>
             </div>

@@ -16,7 +16,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-12 col-sm-12">
                 <table class="table">
                     <thead>
                     <tr>Lista Pojazdów</tr>
@@ -24,12 +24,14 @@
                         <th style="font-weight: bold">ID</th>
                         <th style="font-weight: bold">Marka</th>
                         <th style="font-weight: bold">Model</th>
+                        <th style="font-weight: bold">Oznaczenie silnika</th>
+                        <th style="font-weight: bold">Kod silnika</th>
                         <th style="font-weight: bold">Rok</th>
                         <th style="font-weight: bold">Nr. rejestracyjny</th>
                         <th style="font-weight: bold">VIN</th>
                         <th style="font-weight: bold">Przebieg</th>
                         <th style="font-weight: bold">Właściciel</th>
-                        <th style="font-weight: bold">Edytuj</th>
+                        <th style="font-weight: bold">Edytuj samochód</th>
                         <th style="font-weight: bold">Dodaj naprawe</th>
                     </tr>
                     </thead>
@@ -39,6 +41,8 @@
                             <td th:text="${car.getId()}"></td>
                             <td th:text="${car.mark.toUpperCase()}"></td>
                             <td th:text="${car.model.toUpperCase()}"></td>
+                            <td th:text="${car.engineDesignation.toUpperCase()}"></td>
+                            <td th:text="${car.engineCode.toUpperCase()}"></td>
                             <td th:text="${car.year}"></td>
                             <td th:text="${car.plateNumber.toUpperCase()}"></td>
                             <td th:text="${car.chassisNumber.toUpperCase()}"></td>
