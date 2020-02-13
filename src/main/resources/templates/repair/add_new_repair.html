@@ -16,7 +16,7 @@
     <div style="text-align: center;">
         <h1>Forumlarz dodania naprawy</h1>
     </div>
-    <div  class="row justify-content-center">
+    <div class="row justify-content-center">
 
 
         <form th:object="${repair}" method="post" th:action="@{/repair/addnewacceptance}">
@@ -146,7 +146,7 @@
             <div class="row">
                 <div class="col">
                     <label for="repairNumber">Numer naprawy</label>
-                    <input id="repairNumber" type="text" class="form-control" th:field="*{repairNumber}"readonly>
+                    <input id="repairNumber" type="text" class="form-control" th:field="*{repairNumber}" readonly>
                     <p th:if="${#fields.hasErrors('repairNumber')}" th:errors="*{repairNumber}"></p><br>
                 </div>
                 <div class="col">
@@ -176,7 +176,8 @@
             <div class="row">
                 <div class="col">
                     <label for="faultsReportedByCustomer">Usterki zgłoszone przez klienta</label>
-                    <textarea class="form-control" id="faultsReportedByCustomer" th:field="*{faultsReportedByCustomer}" rows="3"></textarea>
+                    <textarea class="form-control" id="faultsReportedByCustomer" th:field="*{faultsReportedByCustomer}"
+                              rows="3"></textarea>
                 </div>
             </div>
             <br>
@@ -190,7 +191,8 @@
             <div class="row">
                 <div class="col">
                     <label for="estimatedRepairPrice">Szacunkowa cena naprawy</label>
-                    <input id="estimatedRepairPrice" type="text" class="form-control" th:field="*{estimatedRepairPrice}">
+                    <input id="estimatedRepairPrice" type="text" class="form-control"
+                           th:field="*{estimatedRepairPrice}">
                     <p th:if="${#fields.hasErrors('estimatedRepairPrice')}" th:errors="*{estimatedRepairPrice}"></p><br>
                 </div>
                 <div class="col">
@@ -199,18 +201,6 @@
                     <p th:if="${#fields.hasErrors('finalRepairPrice')}" th:errors="*{finalRepairPrice}"></p><br>
                 </div>
             </div>
-            <script th:inline="javascript">
-
-                function addFields()
-                {
-                    document.getElementById("cos").insertRow(-1).innerHTML =
-                        '<input id="finalReddpairPrice" type="text" class="form-control" th:field="*{dd}">'
-                    ;
-                }
-
-            </script>
-
-            <button type="button" onclick="addFields()">Insert new row</button>
             <button value="submit" type="submit" class="btn btn-primary">Dodaj</button>
         </form>
 

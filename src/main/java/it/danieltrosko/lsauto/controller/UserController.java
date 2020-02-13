@@ -19,6 +19,7 @@ public class UserController {
     }
 
 
+
     @GetMapping(value = "/addnewuser")
     public String createnewUser(Model model) {
         model.addAttribute("user", new UserDTO());

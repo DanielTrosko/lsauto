@@ -14,7 +14,6 @@ public class CarMapper {
         User owner = car.getOwner();
 
         carDTO.setEmail(owner.getEmail());
-        carDTO.setUsername(owner.getUsername());
         carDTO.setPassword(owner.getPassword());
         carDTO.setFirstName(owner.getFirstName());
         carDTO.setSurname(owner.getSurame());
@@ -58,7 +57,6 @@ public class CarMapper {
         Address address = new Address();
 
         user.setEmail(carDTO.getEmail());
-        user.setUsername(carDTO.getUsername());
         user.setPassword(carDTO.getPassword());
         user.setFirstName(carDTO.getFirstName());
         user.setSurame(carDTO.getSurname());

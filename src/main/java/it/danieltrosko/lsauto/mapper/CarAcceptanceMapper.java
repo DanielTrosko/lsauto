@@ -22,7 +22,6 @@ public class CarAcceptanceMapper {
         acceptanceDTO.setChassisNumber(car.getChassisNumber());
         acceptanceDTO.setMeterReading(car.getMeterReading());
         acceptanceDTO.setEmail(car.getOwner().getEmail());
-        acceptanceDTO.setUsername(car.getOwner().getUsername());
         acceptanceDTO.setPassword(car.getOwner().getPassword());
         acceptanceDTO.setFirstName(car.getOwner().getFirstName());
         acceptanceDTO.setSurname(car.getOwner().getSurame());
@@ -60,7 +59,6 @@ public class CarAcceptanceMapper {
         carAcceptanceDTO.setStatus(repair.getStatus());
         carAcceptanceDTO.setUserId(user.getId());
         carAcceptanceDTO.setEmail(user.getEmail());
-        carAcceptanceDTO.setUsername(user.getUsername());
         carAcceptanceDTO.setPassword(user.getPassword());
         carAcceptanceDTO.setFirstName(user.getFirstName());
         carAcceptanceDTO.setSurname(user.getSurame());
@@ -99,7 +97,6 @@ public class CarAcceptanceMapper {
         User user = new User();
         user.setId(carAcceptanceDTO.getUserId());
         user.setEmail(carAcceptanceDTO.getEmail());
-        user.setUsername(carAcceptanceDTO.getUsername());
         user.setPassword(carAcceptanceDTO.getPassword());
         user.setFirstName(carAcceptanceDTO.getFirstName());
         user.setSurame(carAcceptanceDTO.getSurname());
