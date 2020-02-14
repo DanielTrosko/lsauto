@@ -33,6 +33,10 @@ public class UserService {
         return UserMapper.toDTO(userRepository.getOne(id));
     }
 
+    public UserDTO getUserByEmail(String email) {
+        return UserMapper.toDTO(userRepository.getUserByEmail(email).get());
+    }
+
     public void createUser(UserDTO userDTO) {
         User user = UserMapper.userToEntity(userDTO);
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
@@ -50,6 +54,10 @@ public class UserService {
 
     public boolean checkEmailInDB(String email) {
         return userRepository.getUserByEmail(email).isPresent();
+    }
+
+    public boolean login(String email, String password) {
+        return userRepository.getUserByEmailAndPassword(email, password).isPresent();
     }
 
     public List<UserDTO> getAllUser() {
