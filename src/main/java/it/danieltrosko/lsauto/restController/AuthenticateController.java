@@ -4,39 +4,50 @@ import it.danieltrosko.lsauto.security.AuthenticationRequest;
 import it.danieltrosko.lsauto.security.AuthenticationResponse;
 import it.danieltrosko.lsauto.security.JwtUtil;
 import it.danieltrosko.lsauto.services.MyUserDetailService;
+import it.danieltrosko.lsauto.services.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(value = "/api/user")
 public class AuthenticateController {
 
     private AuthenticationManager authenticationManager;
     private MyUserDetailService userDetailService;
     private JwtUtil jwtUtil;
+    private UserService userService;
 
-    public AuthenticateController(AuthenticationManager authenticationManager, MyUserDetailService userDetailService, JwtUtil jwtUtil) {
+    public AuthenticateController(AuthenticationManager authenticationManager, MyUserDetailService userDetailService, JwtUtil jwtUtil, UserService userService) {
         this.authenticationManager = authenticationManager;
         this.userDetailService = userDetailService;
         this.jwtUtil = jwtUtil;
+        this.userService = userService;
     }
 
     @PostMapping(value = "/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
-        try {
+
+
+        if (userService.isEmailAndPasswordCorrect(authenticationRequest.getEmail(),authenticationRequest.getPassword())) {
+
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(), authenticationRequest.getPassword()));
-        } catch (BadCredentialsException e) {
-            throw new Exception("Incorrect email or password", e);
+
+            UserDetails userDetails = userDetailService.loadUserByUsername(authenticationRequest.getEmail());
+
+            final String jwt = jwtUtil.generateToken(userDetails);
+
+            return ResponseEntity.ok(new AuthenticationResponse(jwt));
         }
-        UserDetails userDetails = userDetailService.loadUserByUsername(authenticationRequest.getEmail());
 
-        final String jwt = jwtUtil.generateToken(userDetails);
+        return new ResponseEntity<>("Email or password is not correct",HttpStatus.NOT_FOUND);
 
-        return ResponseEntity.ok(new AuthenticationResponse(jwt));
+
     }
 }

@@ -8,17 +8,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class MyUserDetailService implements UserDetailsService {
 
     private UserService userService;
-    private AuthoritiesService authoritiesService;
 
-    public MyUserDetailService(UserService userService, AuthoritiesService authoritiesService) {
+
+    public MyUserDetailService(UserService userService) {
         this.userService = userService;
-        this.authoritiesService = authoritiesService;
     }
 
     @Override
@@ -26,7 +24,8 @@ public class MyUserDetailService implements UserDetailsService {
 
         UserDTO userDTO = userService.getUserByEmail(email);
         return new User(userDTO.getEmail(), userDTO.getPassword(), new ArrayList<>());
-
-
     }
+
+
+
 }

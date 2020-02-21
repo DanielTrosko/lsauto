@@ -7,7 +7,9 @@ import it.danieltrosko.lsauto.model.entites.User;
 import it.danieltrosko.lsauto.model.repositories.AddressRepository;
 import it.danieltrosko.lsauto.model.repositories.AuthoritiesRepository;
 import it.danieltrosko.lsauto.model.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -22,6 +24,9 @@ public class UserService {
     private UserRepository userRepository;
     private AddressRepository addressRepository;
     private AuthoritiesRepository authoritiesRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository, AddressRepository addressRepository, AuthoritiesRepository authoritiesRepository) {
         this.userRepository = userRepository;
@@ -56,8 +61,10 @@ public class UserService {
         return userRepository.getUserByEmail(email).isPresent();
     }
 
-    public boolean login(String email, String password) {
-        return userRepository.getUserByEmailAndPassword(email, password).isPresent();
+    public boolean isEmailAndPasswordCorrect(String email, String password) {
+
+        User user = userRepository.getUserByEmail(email).get();
+        return  passwordEncoder.matches(password, user.getPassword());
     }
 
     public List<UserDTO> getAllUser() {
