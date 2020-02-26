@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
-@RequestMapping(value = "/api/user")
+@RequestMapping(value = "/api/")
 public class AuthenticateController {
 
     private AuthenticationManager authenticationManager;
@@ -32,8 +34,7 @@ public class AuthenticateController {
     }
 
     @PostMapping(value = "/authenticate")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
-
+    public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody AuthenticationRequest authenticationRequest) {
 
         if (userService.isEmailAndPasswordCorrect(authenticationRequest.getEmail(),authenticationRequest.getPassword())) {
 
@@ -46,7 +47,7 @@ public class AuthenticateController {
             return ResponseEntity.ok(new AuthenticationResponse(jwt));
         }
 
-        return new ResponseEntity<>("Email or password is not correct",HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Email or password is not correct",HttpStatus.UNAUTHORIZED);
 
 
     }

@@ -51,15 +51,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/repair/**").hasAnyRole("EMPLOYEE", "ADMIN")
                 .and()
                 .formLogin()
-                .usernameParameter("email")
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/user/authenticate").permitAll()
+                .antMatchers("/api/authenticate").permitAll()
                 .antMatchers("/api/user/hello").authenticated()
                 .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement();
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 

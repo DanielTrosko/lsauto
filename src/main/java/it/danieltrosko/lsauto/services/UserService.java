@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -63,6 +64,13 @@ public class UserService {
 
     public boolean isEmailAndPasswordCorrect(String email, String password) {
 
+//        Optional<User> optionalUser = userRepository.getUserByEmail(email);
+//        if (optionalUser.isPresent()) {
+//            User user = optionalUser.get();
+//            return passwordEncoder.matches(password, user.getPassword());
+//        } else {
+//            return false;
+//        }
         User user = userRepository.getUserByEmail(email).get();
         return  passwordEncoder.matches(password, user.getPassword());
     }
