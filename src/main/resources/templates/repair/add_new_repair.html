@@ -24,6 +24,7 @@
             <input th:field="*{repairId}" hidden="true"/>
             <input th:field="*{userId}" hidden="true"/>
             <input th:field="*{addressId}" hidden="true"/>
+            <input th:field="*{engineCode}" hidden="true"/>
 
 
             <div class="row">
@@ -167,6 +168,7 @@
                     <br>
                     <label for="status">Status</label>
                     <select id="status" name="status" class="browser-default custom-select">
+                        <!--/*@thymesVar id="values" type="it.danieltrosko.lsauto.model.entites.RepairStatus"*/-->
                         <option th:each="status : ${T(it.danieltrosko.lsauto.model.entites.RepairStatus).values()}"
                                 th:value="${status}" th:text="${status}"></option>
                     </select>

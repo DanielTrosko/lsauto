@@ -8,6 +8,8 @@ import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
@@ -42,12 +44,12 @@ public class CarAcceptanceDTO {
     private LocalDate dateOfAdmission;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataOfPickup;
-    @NotBlank(message = "To pole nie może być puste")
     private String scopeOfWork;
     @NotEmpty
     private String faultsReportedByCustomer;
     private String estimatedRepairPrice;
     private String finalRepairPrice;
+    @Enumerated(EnumType.STRING)
     private RepairStatus status;
     private Car car;
 

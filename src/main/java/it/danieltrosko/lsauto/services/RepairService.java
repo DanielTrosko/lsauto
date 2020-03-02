@@ -6,6 +6,7 @@ import it.danieltrosko.lsauto.mapper.CarAcceptanceMapper;
 import it.danieltrosko.lsauto.mapper.RepairMapper;
 import it.danieltrosko.lsauto.model.entites.Car;
 import it.danieltrosko.lsauto.model.entites.RepairStatus;
+import it.danieltrosko.lsauto.model.entites.rest.CurrentRepair;
 import it.danieltrosko.lsauto.model.repositories.CarRepository;
 import it.danieltrosko.lsauto.model.repositories.RepairRepository;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,10 @@ public class RepairService {
     public CarAcceptanceDTO getAcceptanceCarWithExistCar(Long carId) {
         CarAcceptanceDTO carAcceptanceDTO = CarAcceptanceMapper.toDTO(carRepository.findById(carId).orElse(new Car()));
         return carAcceptanceDTO;
+    }
+
+    public List<CurrentRepair> getCurrentRepairr() {
+        return repairRepository.getallcos();
     }
 
 }

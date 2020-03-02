@@ -15,9 +15,9 @@ public class Car extends BaseEntity {
     private String mark;
     @Column(nullable = false)
     private String model;
-    @Column(nullable = false)
+    @Column
     private String engineDesignation;
-    @Column(nullable = false)
+    @Column
     private String engineCode;
     @Column(nullable = false)
     private String year;

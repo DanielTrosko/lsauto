@@ -27,7 +27,6 @@ public class Repair extends BaseEntity {
     private String faultsReportedByCustomer;
     private String estimatedRepairPrice;
     private String finalRepairPrice;
-    @NotEmpty
     private String scopeOfWork;
     @Enumerated(EnumType.STRING)
     private RepairStatus status;
