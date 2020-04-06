@@ -6,12 +6,12 @@ import it.danieltrosko.lsauto.model.entites.Car;
 import it.danieltrosko.lsauto.model.repositories.AddressRepository;
 import it.danieltrosko.lsauto.model.repositories.CarRepository;
 import it.danieltrosko.lsauto.model.repositories.UserRepository;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 @Transactional
@@ -36,14 +36,19 @@ public class CarService {
     }
 
     public CarDTO getCarById(Long id) {
-        return CarMapper.toDTO(carRepository.findById(id).orElse(new Car()));
+        return CarMapper
+                .toDTO(carRepository.findById(id)
+                        .orElseThrow(() -> new ObjectNotFoundException(id, "car does not exist")));
     }
 
     public List<CarDTO> getAllCars() {
-        return carRepository.findAll().stream().map(CarMapper::toDTO).collect(Collectors.toList());
+        return carRepository.findAll()
+                .stream()
+                .map(CarMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     public CarDTO getCarByPlateNumber(String plateNr) {
-        return CarMapper.toDTO(carRepository.getByPlateNumberEquals(plateNr).orElse(new Car()));
+        return CarMapper.toDTO(carRepository.getByPlateNumberEquals(plateNr).orElseThrow(() -> new ObjectNotFoundException(plateNr, "car does not exist")));
     }
 }

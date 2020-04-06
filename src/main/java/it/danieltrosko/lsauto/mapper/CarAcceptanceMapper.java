@@ -1,10 +1,7 @@
 package it.danieltrosko.lsauto.mapper;
 
 import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
-import it.danieltrosko.lsauto.model.entites.Address;
-import it.danieltrosko.lsauto.model.entites.Car;
-import it.danieltrosko.lsauto.model.entites.Repair;
-import it.danieltrosko.lsauto.model.entites.User;
+import it.danieltrosko.lsauto.model.entites.*;
 
 public class CarAcceptanceMapper {
 
@@ -39,6 +36,7 @@ public class CarAcceptanceMapper {
         Car car = repair.getCar();
         User user = repair.getCar().getOwner();
         Address address = repair.getCar().getOwner().getAddress();
+        CarRepairPhoto carRepairPhoto = new CarRepairPhoto();
         carAcceptanceDTO.setCarId(car.getId());
         carAcceptanceDTO.setMark(car.getMark());
         carAcceptanceDTO.setModel(car.getModel());
@@ -69,6 +67,11 @@ public class CarAcceptanceMapper {
         carAcceptanceDTO.setApartmentNumber(address.getApartmentNumber());
         carAcceptanceDTO.setPostCode(address.getPostCode());
         carAcceptanceDTO.setCity(address.getCity());
+//        carAcceptanceDTO.setPhotoOne(carRepairPhoto.getPhotoOne());
+//        carAcceptanceDTO.setPhotoTwo(carRepairPhoto.getPhotoTwo());
+//        carAcceptanceDTO.setPhotoThree(carRepairPhoto.getPhotoThree());
+//        carAcceptanceDTO.setPhotoFour(carRepairPhoto.getPhotoFour());
+        carAcceptanceDTO.setPhotoId(carRepairPhoto.getId());
         return carAcceptanceDTO;
 
     }
@@ -112,6 +115,14 @@ public class CarAcceptanceMapper {
         user.setAddress(address);
         car.setOwner(user);
         repair.setCar(car);
+
+        CarRepairPhoto carRepairPhoto = new CarRepairPhoto();
+        carRepairPhoto.setRepair(repair);
+//        carRepairPhoto.setPhotoOne(carAcceptanceDTO.getPhotoOne());
+//        carRepairPhoto.setPhotoTwo(carAcceptanceDTO.getPhotoTwo());
+//        carRepairPhoto.setPhotoThree(carAcceptanceDTO.getPhotoThree());
+//        carRepairPhoto.setPhotoFour(carAcceptanceDTO.getPhotoFour());
+
 
         return repair;
 

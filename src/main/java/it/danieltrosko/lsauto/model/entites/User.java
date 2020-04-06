@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class User extends BaseEntity {
 
-    @Email
+//    @Email
     @Column(nullable = false)
     private String email;
     private String password;

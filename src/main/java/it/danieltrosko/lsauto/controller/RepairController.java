@@ -2,10 +2,7 @@ package it.danieltrosko.lsauto.controller;
 
 import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
 import it.danieltrosko.lsauto.dto.RepairDTO;
-import it.danieltrosko.lsauto.services.CarAcceptanceService;
-import it.danieltrosko.lsauto.services.CarService;
-import it.danieltrosko.lsauto.services.RepairService;
-import it.danieltrosko.lsauto.services.UserService;
+import it.danieltrosko.lsauto.services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,14 +18,16 @@ public class RepairController {
     private CarService carService;
     private UserService userService;
     private CarAcceptanceService carAcceptanceService;
+    private CarRepairPhotoService carRepairPhotoService;
 
-    public RepairController(RepairService repairService, CarService carService, UserService userService, CarAcceptanceService carAcceptanceService) {
+
+    public RepairController(RepairService repairService, CarService carService, UserService userService, CarAcceptanceService carAcceptanceService, CarRepairPhotoService carRepairPhotoService) {
         this.repairService = repairService;
         this.carService = carService;
         this.userService = userService;
         this.carAcceptanceService = carAcceptanceService;
+        this.carRepairPhotoService = carRepairPhotoService;
     }
-
 
     @PostMapping(value = "/addnewrepair")
     public String addNewRepair(@Valid @ModelAttribute("RepairDTO") RepairDTO repairDTO, Model model) {
@@ -78,10 +77,17 @@ public class RepairController {
         carAcceptanceService.createAcceptance(carAcceptanceDTO);
         return "redirect:/repair/currentrepairs";
     }
+
     @GetMapping(value = "/repairhistory")
-    public String gethistoryOfReapir(Model model){
+    public String gethistoryOfReapir(Model model) {
         model.addAttribute("history", repairService.getRepairHistory());
         return "repair/history_repair";
+    }
+
+    @GetMapping(value = "/showcarrepairphotos")
+    public String showCarRepairPhotos(@RequestParam(value = "id") Long id, Model model) {
+        model.addAttribute("photos", carRepairPhotoService.getCarRepairPhotos(id));
+        return "repair/car_repair_photos";
     }
 
 }

@@ -2,11 +2,11 @@ package it.danieltrosko.lsauto.services;
 
 import it.danieltrosko.lsauto.dto.UserDTO;
 import it.danieltrosko.lsauto.mapper.UserMapper;
-import it.danieltrosko.lsauto.model.entites.Authorities;
 import it.danieltrosko.lsauto.model.entites.User;
 import it.danieltrosko.lsauto.model.repositories.AddressRepository;
 import it.danieltrosko.lsauto.model.repositories.AuthoritiesRepository;
 import it.danieltrosko.lsauto.model.repositories.UserRepository;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -40,7 +39,8 @@ public class UserService {
     }
 
     public UserDTO getUserByEmail(String email) {
-        return UserMapper.toDTO(userRepository.getUserByEmail(email).get());
+        return UserMapper.toDTO(userRepository.getUserByEmail(email)
+                .orElseThrow(() -> new ObjectNotFoundException(email, "user does not exist")));
     }
 
     public void createUser(UserDTO userDTO) {
@@ -49,7 +49,7 @@ public class UserService {
         user.setEnabled(true);
         addressRepository.save(user.getAddress());
         userRepository.save(user);
-        authoritiesRepository.save(new Authorities(user.getEmail(), "ROLE_USER"));
+//        authoritiesRepository.save(new Authorities(user.getEmail(), "ROLE_USER"));
     }
 
     public void updateUser(UserDTO userDTO) {
@@ -71,7 +71,8 @@ public class UserService {
 //        } else {
 //            return false;
 //        }
-        User user = userRepository.getUserByEmail(email).get();
+        User user = userRepository.getUserByEmail(email)
+                .orElseThrow(() -> new ObjectNotFoundException(email, "user does not exist"));
         return  passwordEncoder.matches(password, user.getPassword());
     }
 

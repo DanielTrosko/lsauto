@@ -72,4 +72,12 @@ public class CarAcceptanceDTO {
     private String apartmentNumber;
     private String postCode;
     private String city;
+
+    //photo
+    private Long photoId;
+    private byte[] photoOne;
+    private byte[] photoTwo;
+    private byte[] photoThree;
+    private byte[] photoFour;
+
 }

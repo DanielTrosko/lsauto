@@ -4,13 +4,11 @@ import it.danieltrosko.lsauto.filters.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -49,6 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/car/**").hasAnyRole("EMPLOYEE", "ADMIN")
                 .antMatchers("/pdf/**").hasAnyRole("EMPLOYEE", "ADMIN")
                 .antMatchers("/repair/**").hasAnyRole("EMPLOYEE", "ADMIN")
+                .antMatchers("/photo/**").hasAnyRole("EMPLOYEE", "ADMIN")
                 .and()
                 .formLogin()
                 .and()
@@ -56,8 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/authenticate").permitAll()
                 .antMatchers("/api/user/hello").authenticated()
-                .antMatchers("/api/car**").authenticated()
-                .antMatchers("/api/repair**").authenticated()
+                .antMatchers("/api/car/**").authenticated()
+                .antMatchers("/api/repair/**").authenticated()
                 .and()
                 .sessionManagement();
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

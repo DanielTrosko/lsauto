@@ -1,17 +1,14 @@
 package it.danieltrosko.lsauto.services;
 
-import com.lowagie.text.pdf.codec.Base64;
 import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
 import it.danieltrosko.lsauto.mapper.CarAcceptanceMapper;
 import it.danieltrosko.lsauto.model.repositories.RepairRepository;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.util.JRSaver;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,19 +24,23 @@ public class PdfService {
     }
 
 
-    public byte[] getCarAcceptancePDF(Long id) throws JRException {
+    public byte[] getCarAcceptancePDF(Long id) throws JRException, IOException {
         return generatePDF(getParamFromDB(id));
 
     }
 
-    public byte[] generatePDF(Map<String, Object> param) throws JRException {
+    public byte[] generatePDF(Map<String, Object> param) throws JRException, IOException {
+//        String resource = "C:\\Users\\Daniel\\Desktop\\Rep\\lsauto\\src\\main\\resources\\carAcceptancePDF.jrxml";
+//        InputStream jrxml = getClass().getResourceAsStream("/resources/carAcceptancePDF.jrxml");
+        Resource resource = new ClassPathResource("carAcceptancePDF.jrxml");
+        InputStream jrxml = resource.getInputStream();
 
-        InputStream jrxml = this.getClass().getResourceAsStream("/carAcceptancePDF.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(jrxml);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, param, new JREmptyDataSource(1));
 
         return JasperExportManager.exportReportToPdf(jasperPrint);
+//        return new byte[2];
     }
 
 

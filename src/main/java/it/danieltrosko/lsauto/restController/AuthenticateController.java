@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/api/")
+@RequestMapping(value = "/api")
 public class AuthenticateController {
 
     private AuthenticationManager authenticationManager;

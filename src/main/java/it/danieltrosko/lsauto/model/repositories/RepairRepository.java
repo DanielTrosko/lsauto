@@ -11,10 +11,12 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface RepairRepository extends JpaRepository<Repair, Long> {
-    List<Repair> getAllByStatusIsNot(RepairStatus repairStatus);
-    List<Repair> getAllByStatusIs(RepairStatus repairStatus);
+       List<Repair> getAllByStatusIsNot(RepairStatus repairStatus);
+        List<Repair> getAllByStatusIs(RepairStatus repairStatus);
     @Query(value = "SELECT r.date_of_admission, r.status, c.mark, c.model FROM repair r JOIN car c on r.id = car_id", nativeQuery = true)
     List<CurrentRepair> getallcos();
 }

@@ -4,11 +4,11 @@ import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
 import it.danieltrosko.lsauto.dto.RepairDTO;
 import it.danieltrosko.lsauto.mapper.CarAcceptanceMapper;
 import it.danieltrosko.lsauto.mapper.RepairMapper;
-import it.danieltrosko.lsauto.model.entites.Car;
 import it.danieltrosko.lsauto.model.entites.RepairStatus;
 import it.danieltrosko.lsauto.model.entites.rest.CurrentRepair;
 import it.danieltrosko.lsauto.model.repositories.CarRepository;
 import it.danieltrosko.lsauto.model.repositories.RepairRepository;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -39,7 +39,10 @@ public class RepairService {
     }
 
     public List<RepairDTO> getCurrentRepair() {
-        return repairRepository.getAllByStatusIsNot(RepairStatus.TO_RECEIVE).stream().map(RepairMapper::toDTO).collect(Collectors.toList());
+        return repairRepository.getAllByStatusIsNot(RepairStatus.TO_RECEIVE)
+                .stream()
+                .map(RepairMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     public List<RepairDTO> getRepairHistory(){
@@ -51,12 +54,14 @@ public class RepairService {
     }
 
     public CarAcceptanceDTO getAcceptanceCarWithExistCar(Long carId) {
-        CarAcceptanceDTO carAcceptanceDTO = CarAcceptanceMapper.toDTO(carRepository.findById(carId).orElse(new Car()));
+        CarAcceptanceDTO carAcceptanceDTO = CarAcceptanceMapper.toDTO(carRepository.findById(carId).orElseThrow(() -> new ObjectNotFoundException(carId, "car acceptance does not exist")));
         return carAcceptanceDTO;
     }
 
     public List<CurrentRepair> getCurrentRepairr() {
         return repairRepository.getallcos();
     }
+
+
 
 }

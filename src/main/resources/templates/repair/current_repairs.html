@@ -33,6 +33,7 @@
                         <th style="font-weight: bold">Status naprawy</th>
                         <th style="font-weight: bold">Edycja</th>
                         <th style="font-weight: bold">Dokument</th>
+                        <th style="font-weight: bold">Zdjęcia</th>
 
                     </tr>
                     </thead>
@@ -52,6 +53,9 @@
                             </td>
                             <td>
                                 <a th:href="@{/pdf/caracceptance(id=${car.getId()})}" style="color:black">PDF</a>
+                            </td>
+                            <td>
+                                <a th:href="@{/repair/showcarrepairphotos(id=${car.id})}" style="color:black">Zdjecia</a>
                             </td>
                         </tr>
                     </th:block>
