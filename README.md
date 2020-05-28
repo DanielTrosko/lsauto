@@ -9,3 +9,13 @@ Workshop management application
 * Repair management
 * Saving and displaying documents
 * Photo management
+
+
+
+## Built With
+
+* Spring Boot
+* Thymleaf
+* Lombok
+* Jasper Reports
+* JWT
