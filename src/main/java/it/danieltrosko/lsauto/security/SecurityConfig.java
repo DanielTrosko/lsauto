@@ -1,4 +1,4 @@
-package it.danieltrosko.lsauto;
+package it.danieltrosko.lsauto.security;
 
 import it.danieltrosko.lsauto.filters.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;

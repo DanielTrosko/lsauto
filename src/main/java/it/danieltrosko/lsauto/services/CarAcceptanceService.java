@@ -66,10 +66,6 @@ public class CarAcceptanceService {
         carAcceptanceDTO.setEstimatedRepairPrice(param.get("estimatedRepairPrice"));
         carAcceptanceDTO.setDataOfPickup(LocalDate.now());
         carAcceptanceDTO.setStatus(RepairStatus.ACCEPTED);
-//        carAcceptanceDTO.setPhotoOne(photoOne.getBytes());
-//        carAcceptanceDTO.setPhotoTwo(photoTwo.getBytes());
-//        carAcceptanceDTO.setPhotoThree(photoThree.getBytes());
-//        carAcceptanceDTO.setPhotoFour(photoFour.getBytes());
         System.err.println(carAcceptanceDTO.getEmail());
         Repair repair = CarAcceptanceMapper.toRepairEntity(carAcceptanceDTO);
 
@@ -79,10 +75,20 @@ public class CarAcceptanceService {
         repairRepository.save(repair);
 
         for (int i = 0; i < files.size(); i++) {
-            CarRepairPhoto carRepairPhoto = new CarRepairPhoto();
-            carRepairPhoto.setRepair(repair);
-            carRepairPhoto.setPhoto(files.get(i).getBytes());
-            carRepairPhotoRepository.save(carRepairPhoto);
+            int finalI = i;
+        new Thread(() -> {
+
+                try {
+                    CarRepairPhoto carRepairPhoto = new CarRepairPhoto();
+                    carRepairPhoto.setRepair(repair);
+                    carRepairPhoto.setPhoto(files.get(finalI).getBytes());
+                    carRepairPhotoRepository.save(carRepairPhoto);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }).start();
+
         }
 
     }

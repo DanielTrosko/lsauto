@@ -2,6 +2,7 @@ package it.danieltrosko.lsauto.dto;
 
 import lombok.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 public class UserDTO {
     private Long id;
     @Email
+
     private String email;
     private String username;
     private String password;

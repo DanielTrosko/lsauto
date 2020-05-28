@@ -64,14 +64,31 @@
                         <label for="status">Status</label>
                         <select id="status" name="status" class="browser-default custom-select">
                             <option th:each="status : ${T(it.danieltrosko.lsauto.model.entites.RepairStatus).values()}"
-                                    th:value="${status}" th:text="${status}"></option>
+                                    th:value="${status}" th:text="${status}"
+                            ></option>
                         </select>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="scopeOfWork">Usterki zgłoszone przez klienta</label>
+                        <textarea class="form-control" id="faultsReportedByCustomer" th:field="*{faultsReportedByCustomer}" rows="3"></textarea>
+                        <p th:if="${#fields.hasErrors('faultsReportedByCustomer')}" th:errors="*{faultsReportedByCustomer}"></p><br>
                     </div>
 
                     <div class="md-form">
                         <label for="scopeOfWork">Zakres prac</label>
                         <textarea class="form-control" id="scopeOfWork" th:field="*{scopeOfWork}" rows="3"></textarea>
                         <p th:if="${#fields.hasErrors('scopeOfWork')}" th:errors="*{scopeOfWork}"></p><br>
+                    </div>
+
+                    <div class="md-form">
+                        <label for="estimatedRepairPrice">Szacowana cena naprawy</label>
+                        <input id="estimatedRepairPrice" type="text" class="form-control" th:field="*{estimatedRepairPrice}">
+                    </div>
+
+                    <div class="md-form">
+                        <label for="finalRepairPrice">Ostateczna cena naprawy</label>
+                        <input id="finalRepairPrice" type="text" class="form-control" th:field="*{finalRepairPrice}">
                     </div>
 
 

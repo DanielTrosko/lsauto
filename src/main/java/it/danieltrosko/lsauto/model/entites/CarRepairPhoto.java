@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class CarRepairPhoto extends BaseEntity{
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "repair_id")
     private Repair repair;
     @Column(name = "photo_one", columnDefinition = "LONGBLOB")
