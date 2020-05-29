@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface RepairRestRepository extends JpaRepository<CurrentRepair, Long> {
-    @Query(value = "SELECT c.id, r.date_of_admission, r.estimated_repair_price, c.mark, c.model FROM repair r JOIN car c on r.id = car_id", nativeQuery = true)
+    @Query(value = "SELECT c.id, c.mark, c.model, r.date_of_admission, r.estimated_repair_price FROM repair as r INNER JOIN car as c ON r.car_id=c.id WHERE r.status = 'ACCEPTED' ", nativeQuery = true)
     List<CurrentRepair> getReducedRepairData();
 }

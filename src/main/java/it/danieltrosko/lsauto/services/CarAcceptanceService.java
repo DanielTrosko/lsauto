@@ -41,11 +41,11 @@ public class CarAcceptanceService {
         repairRepository.save(repair);
 
 
-
     }
 
     public void createRepairWithPhotos
             (Map<String, String> param, List<MultipartFile> files) throws IOException {
+
         CarAcceptanceDTO carAcceptanceDTO = new CarAcceptanceDTO();
         carAcceptanceDTO.setMark(param.get("mark"));
         carAcceptanceDTO.setModel(param.get("model"));
@@ -53,7 +53,8 @@ public class CarAcceptanceService {
         carAcceptanceDTO.setPlateNumber(param.get("plateNumber"));
         carAcceptanceDTO.setChassisNumber(param.get("chassisNumber"));
         carAcceptanceDTO.setMeterReading(param.get("meterReading"));
-        carAcceptanceDTO.setEmail(param.get("email"));
+        String email = param.get("email");
+        carAcceptanceDTO.setEmail(param.get("email").substring(1, email.length() - 1));
         carAcceptanceDTO.setFirstName(param.get("firstName"));
         carAcceptanceDTO.setSurname(param.get("surname"));
         carAcceptanceDTO.setPhoneNumber(param.get("phoneNumber"));
@@ -76,7 +77,7 @@ public class CarAcceptanceService {
 
         for (int i = 0; i < files.size(); i++) {
             int finalI = i;
-        new Thread(() -> {
+            new Thread(() -> {
 
                 try {
                     CarRepairPhoto carRepairPhoto = new CarRepairPhoto();
