@@ -1,6 +1,7 @@
 package it.danieltrosko.lsauto.services;
 
 import it.danieltrosko.lsauto.dto.UserDTO;
+import it.danieltrosko.lsauto.exception.UserNotFoundException;
 import it.danieltrosko.lsauto.mapper.UserMapper;
 import it.danieltrosko.lsauto.model.entites.User;
 import it.danieltrosko.lsauto.model.repositories.AddressRepository;
@@ -35,7 +36,8 @@ public class UserService {
     }
 
     public UserDTO getUserById(Long id) {
-        return UserMapper.toDTO(userRepository.getOne(id));
+//        return UserMapper.toDTO(userRepository.getUserById(id).orElse(new User()));
+        return UserMapper.toDTO(userRepository.getUserById(id).orElseThrow(UserNotFoundException::new));
     }
 
     public UserDTO getUserByEmail(String email) {

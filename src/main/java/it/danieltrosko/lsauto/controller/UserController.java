@@ -1,6 +1,7 @@
 package it.danieltrosko.lsauto.controller;
 
 import it.danieltrosko.lsauto.dto.UserDTO;
+import it.danieltrosko.lsauto.exception.UserNotFoundException;
 import it.danieltrosko.lsauto.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,6 @@ public class UserController {
     }
 
 
-
     @GetMapping(value = "/addnewuser")
     public String createnewUser(Model model) {
         model.addAttribute("user", new UserDTO());
@@ -28,12 +28,12 @@ public class UserController {
 
     @GetMapping(value = "/edituser")
     public String editUser(@RequestParam(value = "id") Long id, Model model) {
-        model.addAttribute("user", userService.getUserById(id));
+            model.addAttribute("user", userService.getUserById(id));
         return "user/edit_user";
     }
 
     @GetMapping(value = "/userslist")
-    public String listOfUsers(Model model){
+    public String listOfUsers(Model model) {
         model.addAttribute("users", userService.getAllUser());
         return "user/users_list";
     }
