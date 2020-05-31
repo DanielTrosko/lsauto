@@ -21,11 +21,6 @@ public class CarController {
     }
 
 
-    @GetMapping(value = "/getcarbyid")
-    public CarDTO getCarById(Long id) {
-        return carService.getCarById(id);
-    }
-
 
     @GetMapping(value = "/addnewcar")
     public String addNewCar(@RequestParam(value = "id", required = false) Long id, Model model) {

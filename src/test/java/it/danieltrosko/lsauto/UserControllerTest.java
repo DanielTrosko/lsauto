@@ -4,17 +4,13 @@ package it.danieltrosko.lsauto;
 import io.florianlopes.spring.test.web.servlet.request.MockMvcRequestBuilderUtils;
 import it.danieltrosko.lsauto.controller.UserController;
 import it.danieltrosko.lsauto.dto.UserDTO;
-import it.danieltrosko.lsauto.exception.UserNotFoundException;
 import org.hamcrest.Matchers;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -44,7 +40,6 @@ public class UserControllerTest {
     }
 
     @Test
-    @WithMockUser(roles = "ADMIN")
     public void shouldCreateNewUser() throws Exception {
         mockMvc
                 .perform(get("/user/addnewuser"))
@@ -69,7 +64,7 @@ public class UserControllerTest {
                 .perform(get("/user/edituser").param("id", String.valueOf(50)))
                 .andExpect(view().name("user/edituser"))
                 .andExpect(status().isOk())
-                .andExpect(model().attribute("user", new UserDTO()))
+                .andExpect(model().attribute("user",Matchers.nullValue()))
                 .andExpect(status().isInternalServerError());
 
     }
