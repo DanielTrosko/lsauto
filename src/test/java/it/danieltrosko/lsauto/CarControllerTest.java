@@ -67,7 +67,6 @@ public class CarControllerTest {
 
     @Test
     public void shouldReturnCorrectCar() throws Exception {
-
         mockMvc
                 .perform(get("/car/showcar").param("id", "1"))
                 .andExpect(model().attribute("car", hasProperty("id", is(1L))))

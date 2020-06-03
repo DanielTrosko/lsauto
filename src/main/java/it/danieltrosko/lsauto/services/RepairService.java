@@ -30,9 +30,6 @@ public class RepairService {
         return RepairMapper.toDTO(repairRepository.getOne(id));
     }
 
-    public void createRepair(RepairDTO repairDTO) {
-        repairRepository.save(RepairMapper.toEntity(repairDTO));
-    }
 
     public void updateRepair(RepairDTO repairDTO) {
         repairRepository.save(RepairMapper.toEntity(repairDTO));
@@ -56,10 +53,6 @@ public class RepairService {
     public CarAcceptanceDTO getAcceptanceCarWithExistCar(Long carId) {
         CarAcceptanceDTO carAcceptanceDTO = CarAcceptanceMapper.toDTO(carRepository.findById(carId).orElseThrow(() -> new ObjectNotFoundException(carId, "car acceptance does not exist")));
         return carAcceptanceDTO;
-    }
-
-    public List<CurrentRepair> getCurrentRepairr() {
-        return repairRepository.getallcos();
     }
 
 
