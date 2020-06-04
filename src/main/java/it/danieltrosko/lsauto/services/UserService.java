@@ -9,6 +9,7 @@ import it.danieltrosko.lsauto.model.repositories.AuthoritiesRepository;
 import it.danieltrosko.lsauto.model.repositories.UserRepository;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -66,18 +67,12 @@ public class UserService {
 
     public boolean isEmailAndPasswordCorrect(String email, String password) {
 
-//        Optional<User> optionalUser = userRepository.getUserByEmail(email);
-//        if (optionalUser.isPresent()) {
-//            User user = optionalUser.get();
-//            return passwordEncoder.matches(password, user.getPassword());
-//        } else {
-//            return false;
-//        }
         User user = userRepository.getUserByEmail(email)
                 .orElseThrow(() -> new ObjectNotFoundException(email, "user does not exist"));
         return  passwordEncoder.matches(password, user.getPassword());
     }
 
+    @Cacheable("allUsers")
     public List<UserDTO> getAllUser() {
         return userRepository.findAll().stream().map(UserMapper::toDTO).collect(Collectors.toList());
     }

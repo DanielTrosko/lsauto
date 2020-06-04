@@ -7,6 +7,7 @@ import it.danieltrosko.lsauto.model.repositories.AddressRepository;
 import it.danieltrosko.lsauto.model.repositories.CarRepository;
 import it.danieltrosko.lsauto.model.repositories.UserRepository;
 import org.hibernate.ObjectNotFoundException;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -40,7 +41,7 @@ public class CarService {
                 .toDTO(carRepository.findById(id)
                         .orElseThrow(() -> new ObjectNotFoundException(id, "car does not exist")));
     }
-
+    @Cacheable("allCars")
     public List<CarDTO> getAllCars() {
         return carRepository.findAll()
                 .stream()

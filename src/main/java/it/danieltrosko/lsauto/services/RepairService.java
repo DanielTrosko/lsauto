@@ -9,6 +9,7 @@ import it.danieltrosko.lsauto.model.entites.rest.CurrentRepair;
 import it.danieltrosko.lsauto.model.repositories.CarRepository;
 import it.danieltrosko.lsauto.model.repositories.RepairRepository;
 import org.hibernate.ObjectNotFoundException;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -35,6 +36,7 @@ public class RepairService {
         repairRepository.save(RepairMapper.toEntity(repairDTO));
     }
 
+    @Cacheable("currentRepair")
     public List<RepairDTO> getCurrentRepair() {
         return repairRepository.getAllByStatusIsNot(RepairStatus.TO_RECEIVE)
                 .stream()
@@ -42,6 +44,7 @@ public class RepairService {
                 .collect(Collectors.toList());
     }
 
+    @Cacheable("repairHistory")
     public List<RepairDTO> getRepairHistory(){
         return repairRepository.getAllByStatusIs(RepairStatus.TO_RECEIVE).stream().map(RepairMapper::toDTO).collect(Collectors.toList());
     }

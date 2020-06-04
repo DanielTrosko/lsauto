@@ -8,13 +8,14 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
-
+@Transactional
 public class PdfService {
 
     private RepairRepository repairRepository;

@@ -26,7 +26,7 @@ public class PdfController {
 
         byte[] pdf = pdfService.getCarAcceptancePDF(id);
         return ResponseEntity.ok()
-                .header("Content-Type", "application/pdf; charset=UTF-8")
+                .header("Content-Type", "application/pdf")
                 .body(pdf);
     }
 

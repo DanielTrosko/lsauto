@@ -1,9 +1,7 @@
 package it.danieltrosko.lsauto;
 
 import it.danieltrosko.lsauto.controller.RepairController;
-import it.danieltrosko.lsauto.controller.UserController;
-import it.danieltrosko.lsauto.dto.CarAcceptanceDTO;
-import javassist.tools.rmi.ObjectNotFoundException;
+import it.danieltrosko.lsauto.model.entites.RepairStatus;
 import org.hamcrest.Matchers;
 
 import org.junit.Before;
@@ -21,7 +19,6 @@ import org.springframework.web.util.NestedServletException;
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.web.util.NestedServletException.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -107,5 +104,29 @@ public class RepairControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attributeHasErrors("car acceptance does not exist"))
                 .andExpect(view().name("repair/add_new_repair_to_exist_car"));
+    }
+
+    @Test
+    public void shouldReturnListOfRepairWithOnlyToReceiveStatus() throws Exception {
+        mockMvc
+                .perform(get("/repair/repairhistory"))
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("history", hasItem(
+                        allOf(
+                                hasProperty("id", Matchers.is(3L)),
+                                hasProperty("status", Matchers.is(RepairStatus.TO_RECEIVE))
+                        )
+                )))
+                .andExpect(view().name("repair/history_repair"));
+    }
+
+    @Test
+    public void shouldReturnRepairPhoto() throws Exception {
+        mockMvc
+                .perform(get("/repair/showcarrepairphotos").param("id", String.valueOf(1L)))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("photos"))
+                .andExpect(model().hasNoErrors())
+                .andExpect(view().name("repair/car_repair_photos"));
     }
 }
