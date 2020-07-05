@@ -1,5 +1,6 @@
 package it.danieltrosko.lsauto.model.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,9 +28,11 @@ public class Car extends BaseEntity {
     private String chassisNumber;
     @Column(nullable = false)
     private String meterReading;
+//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User owner;
+//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(mappedBy = "car")
     private List<Repair> repairList;
 

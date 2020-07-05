@@ -1,13 +1,15 @@
 package it.danieltrosko.lsauto.model.entites;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Address extends BaseEntity {
     private String street;
     private String houseNumber;

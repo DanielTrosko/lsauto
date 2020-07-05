@@ -22,19 +22,19 @@ public class CarController {
 
 
 
-    @GetMapping(value = "/addnewcar")
+    @GetMapping()
     public String addNewCar(@RequestParam(value = "id", required = false) Long id, Model model) {
         if (id == null) {
             model.addAttribute("car", new CarDTO());
         } else {
             model.addAttribute("car", carService.getCarById(id));
         }
-        model.addAttribute("users", userService.getAllUser());
+//        model.addAttribute("users", userService.getUsersList());
         return "car/add_new_car";
     }
 
 
-    @PostMapping(value = "/createnewcar")
+    @PostMapping()
     public String createCar(@Valid @ModelAttribute("CarDTO") CarDTO carDTO, Model model) {
         if (carDTO.getId() == null) {
             carService.createCar(carDTO);
@@ -45,8 +45,8 @@ public class CarController {
         return "index";
     }
 
-    @GetMapping(value = "/showcar")
-    public String showCar(@RequestParam("id") Long id, Model model) {
+    @GetMapping(value = "/{id}")
+    public String showCar(@PathVariable("id") Long id, Model model) {
         model.addAttribute("car", carService.getCarById(id));
         return "car/show_car";
     }

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -42,9 +43,14 @@ public class RepairController {
         return "repair/current_repairs";
     }
 
-    @GetMapping(value = "/currentrepairs")
-    public String currentRepair(Model model) {
-        model.addAttribute("currentrepairs", repairService.getCurrentRepair());
+    //    @GetMapping(value = "/currentrepairs")
+//    public String currentRepair(Model model) {
+//        model.addAttribute("currentrepairs", repairService.getCurrentRepair());
+//        return "repair/current_repairs";
+//    }
+    @GetMapping
+    public String getRepairs(@RequestParam Map<String, String> parameters, Model model) {
+        model.addAttribute("currentrepairs", repairService.getRepairListByParameters(parameters));
         return "repair/current_repairs";
     }
 

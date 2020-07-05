@@ -1,7 +1,8 @@
 package it.danieltrosko.lsauto.model.entites;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Repair extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String repairNumber;
@@ -26,7 +31,8 @@ public class Repair extends BaseEntity {
     private String scopeOfWork;
     @Enumerated(EnumType.STRING)
     private RepairStatus status;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id")
     private Car car;
 

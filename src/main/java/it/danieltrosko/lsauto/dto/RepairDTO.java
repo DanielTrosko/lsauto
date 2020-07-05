@@ -2,8 +2,7 @@ package it.danieltrosko.lsauto.dto;
 
 import it.danieltrosko.lsauto.model.entites.Car;
 import it.danieltrosko.lsauto.model.entites.RepairStatus;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
@@ -13,6 +12,9 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class RepairDTO {
 
     private Long id;

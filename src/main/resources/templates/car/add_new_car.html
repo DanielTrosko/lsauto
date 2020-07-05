@@ -17,7 +17,7 @@
         <div class="col-md-3 col-sm-12">
             <div>
                 <h2>Forumlarz samochodu</h2>
-                <form th:object="${car}" method="post" th:action="@{/car/createnewcar}">
+                <form th:object="${car}" method="post" th:action="@{/car}">
                     <input th:field="*{id}" hidden="true"/>
                     <input th:field="*{firstName}" hidden="true"/>
                     <input th:field="*{surname}" hidden="true"/>

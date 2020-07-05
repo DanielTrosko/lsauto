@@ -19,9 +19,9 @@ public class CarRepairPhotoController {
         this.carRepairPhotoRepository = carRepairPhotoRepository;
     }
 
-    @GetMapping(value = "/show")
+    @GetMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity<Resource> loadPhoto(@RequestParam String id) {
+    public ResponseEntity<Resource> loadPhoto(@PathVariable("id") String id) {
         Long po = Long.parseLong(id);
         CarRepairPhoto carRepairPhoto = carRepairPhotoRepository.getOne(po);
         ByteArrayResource resource = new ByteArrayResource(carRepairPhoto.getPhoto());

@@ -7,6 +7,8 @@ import it.danieltrosko.lsauto.model.repositories.AddressRepository;
 import it.danieltrosko.lsauto.model.repositories.CarRepository;
 import it.danieltrosko.lsauto.model.repositories.UserRepository;
 import org.hibernate.ObjectNotFoundException;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -27,11 +29,14 @@ public class CarService {
         this.addressRepository = addressRepository;
     }
 
+
+    @CachePut(value = "allCars")
     public void createCar(CarDTO carDTO) {
         Car car = CarMapper.toEntity(carDTO);
         userRepository.save(car.getOwner());
         carRepository.save(car);
     }
+    @CacheEvict(value = "allCars", allEntries = true)
     public void updateCar(CarDTO carDTO) {
         carRepository.save(CarMapper.toEntity(carDTO));
     }

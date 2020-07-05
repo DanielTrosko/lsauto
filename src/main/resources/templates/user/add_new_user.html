@@ -18,7 +18,7 @@
             <b> <span style="color:green" th:if="${status != null}" th:text="${status}">status</span></b>
             <div>
                 <h2>Forumlarz klienta</h2>
-                <form th:object="${user}" method="post" th:action="@{/user/createuser}">
+                <form th:object="${user}" method="post" th:action="@{/user}">
                     <input th:field="*{id}" hidden="true"/>
                     <input th:field="*{addressId}" hidden="true"/>
 
