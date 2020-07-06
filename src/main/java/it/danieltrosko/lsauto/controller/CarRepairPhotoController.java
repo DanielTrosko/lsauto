@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/photo")
 public class CarRepairPhotoController {
 
-    CarRepairPhotoRepository carRepairPhotoRepository;
+   private final CarRepairPhotoRepository carRepairPhotoRepository;
 
     public CarRepairPhotoController(CarRepairPhotoRepository carRepairPhotoRepository) {
         this.carRepairPhotoRepository = carRepairPhotoRepository;

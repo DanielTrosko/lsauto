@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/product")
 public class ProductController {
 
-    private ProductRepository productRepository;
-    private ProductService productService;
+    private final ProductRepository productRepository;
+    private final ProductService productService;
 
     public ProductController(ProductRepository productRepository, ProductService productService) {
         this.productRepository = productRepository;

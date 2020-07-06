@@ -51,6 +51,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/photo/**").hasAnyRole("EMPLOYEE", "ADMIN")
                 .and()
                 .formLogin()
+                .loginPage("/login")
+                .usernameParameter("email")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
                 .and()
                 .csrf().disable()
                 .cors().disable();

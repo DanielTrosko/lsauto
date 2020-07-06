@@ -49,13 +49,14 @@
                             <td aria-atomic="true">Robert</td>
                             <td th:text="${car.status}"></td>
                             <td>
-                                <a th:href="@{/repair/getonerepair(id=${car.getId()})}" style="color:black">Edytuj</a>
+                                <a th:href="@{'/repair/' + ${car.getId()}}" style="color:black">Edytuj</a>
                             </td>
                             <td>
-                                <a th:href="@{/pdf/caracceptance(id=${car.getId()})}" style="color:black">PDF</a>
+                                <a th:href="@{'/pdf/' + ${car.getId()}}" style="color:black">PDF</a>
+
                             </td>
                             <td>
-                                <a th:href="@{/repair/showcarrepairphotos(id=${car.id})}" style="color:black">Zdjecia</a>
+                                <a th:href="@{'/repair/photo/' + ${car.getId()}}" style="color:black">Zdjecia</a>
                             </td>
                         </tr>
                     </th:block>

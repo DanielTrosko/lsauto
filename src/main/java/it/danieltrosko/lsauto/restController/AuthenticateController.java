@@ -21,10 +21,10 @@ import javax.validation.Valid;
 @RequestMapping(value = "/api")
 public class AuthenticateController {
 
-    private AuthenticationManager authenticationManager;
-    private MyUserDetailService userDetailService;
-    private JwtUtil jwtUtil;
-    private UserService userService;
+    private final AuthenticationManager authenticationManager;
+    private final MyUserDetailService userDetailService;
+    private final JwtUtil jwtUtil;
+    private final UserService userService;
 
     public AuthenticateController(AuthenticationManager authenticationManager, MyUserDetailService userDetailService, JwtUtil jwtUtil, UserService userService) {
         this.authenticationManager = authenticationManager;

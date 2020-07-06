@@ -2,7 +2,6 @@ package it.danieltrosko.lsauto.controller;
 
 import it.danieltrosko.lsauto.dto.CarDTO;
 import it.danieltrosko.lsauto.services.CarService;
-import it.danieltrosko.lsauto.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +11,10 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/car")
 public class CarController {
-    private CarService carService;
-    private UserService userService;
+    private final CarService carService;
 
-    public CarController(CarService carService, UserService userService) {
+    public CarController(CarService carService) {
         this.carService = carService;
-        this.userService = userService;
     }
 
 
@@ -29,7 +26,6 @@ public class CarController {
         } else {
             model.addAttribute("car", carService.getCarById(id));
         }
-//        model.addAttribute("users", userService.getUsersList());
         return "car/add_new_car";
     }
 
@@ -41,7 +37,7 @@ public class CarController {
         } else {
             carService.createCar(carDTO);
         }
-        model.addAttribute("carlist", carService.getAllCars());
+        model.addAttribute("carlist", carService.getCarsList());
         return "index";
     }
 

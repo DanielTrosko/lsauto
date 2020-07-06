@@ -15,17 +15,13 @@ import java.util.Optional;
 @RequestMapping("/repair")
 public class RepairController {
 
-    private RepairService repairService;
-    private CarService carService;
-    private UserService userService;
-    private CarAcceptanceService carAcceptanceService;
-    private CarRepairPhotoService carRepairPhotoService;
+    private final RepairService repairService;
+    private final CarAcceptanceService carAcceptanceService;
+    private final CarRepairPhotoService carRepairPhotoService;
 
 
-    public RepairController(RepairService repairService, CarService carService, UserService userService, CarAcceptanceService carAcceptanceService, CarRepairPhotoService carRepairPhotoService) {
+    public RepairController(RepairService repairService, CarAcceptanceService carAcceptanceService, CarRepairPhotoService carRepairPhotoService) {
         this.repairService = repairService;
-        this.carService = carService;
-        this.userService = userService;
         this.carAcceptanceService = carAcceptanceService;
         this.carRepairPhotoService = carRepairPhotoService;
     }
@@ -43,19 +39,14 @@ public class RepairController {
         return "repair/current_repairs";
     }
 
-    //    @GetMapping(value = "/currentrepairs")
-//    public String currentRepair(Model model) {
-//        model.addAttribute("currentrepairs", repairService.getCurrentRepair());
-//        return "repair/current_repairs";
-//    }
     @GetMapping
     public String getRepairs(@RequestParam Map<String, String> parameters, Model model) {
         model.addAttribute("currentrepairs", repairService.getRepairListByParameters(parameters));
         return "repair/current_repairs";
     }
 
-    @GetMapping(value = "/getonerepair")
-    public String getOneRepair(@RequestParam(value = "id") Long id, Model model) {
+    @GetMapping(value = "/{id}")
+    public String getOneRepair(@PathVariable("id") Long id, Model model) {
         model.addAttribute("repair", repairService.getRepairById(id));
         return "repair/edit_repair";
     }
@@ -85,13 +76,13 @@ public class RepairController {
     }
 
     @GetMapping(value = "/repairhistory")
-    public String gethistoryOfReapir(Model model) {
+    public String getHistoryOfRepair(Model model) {
         model.addAttribute("history", repairService.getRepairHistory());
         return "repair/history_repair";
     }
 
-    @GetMapping(value = "/showcarrepairphotos")
-    public String showCarRepairPhotos(@RequestParam(value = "id") Long id, Model model) {
+    @GetMapping(value = "/photo/{id}")
+    public String showCarRepairPhotos(@PathVariable("id") Long id, Model model) {
         model.addAttribute("photos", carRepairPhotoService.getCarRepairPhotos(id));
         return "repair/car_repair_photos";
     }
